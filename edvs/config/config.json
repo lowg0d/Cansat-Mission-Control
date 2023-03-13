@@ -31,7 +31,7 @@
         "license": "The MIT License (MIT)",
         "cp": "Copyright (C) 2023 EDVS, Martin Ortiz, Tecnoclub Elburgo",
         "description": "Elburgo Data Visualization Software is a python Ground Station tool that analyze, visualizate and process arduino data.",
-        "icon_path": "./edvs/guis/ui_resources/app_icon.ico",
+        "icon_path": "./edvs/ui/resources/icons/app_icon.ico",
         "settings": {
             "command_prefix": "/",
             "logs_folder": "./saves",

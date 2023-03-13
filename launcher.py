@@ -15,6 +15,7 @@ import os
 import sys
 
 from edvs import MainWindow
+
 from PyQt5.QtWidgets import QApplication
 
 if __name__ == '__main__':
