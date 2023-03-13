@@ -46,6 +46,7 @@ class MainWindow(QMainWindow):
         self.serial = SerialManager(self)
         self.clock_updater = ClockUpdater(self)
         self.button_manager = ButtonManager(self)
+        self.graph_manager = GraphManager(self)
         
         # Utility Instances
         self.connection_buffer = ConnectionBuffer(self)
@@ -54,7 +55,6 @@ class MainWindow(QMainWindow):
         # Set ups
         self.setup_window()
         self.setup_buttons() 
-        self.setup_graphs()
         self.apply_config()
         
         # connect graph updater to the signal
@@ -217,10 +217,6 @@ class MainWindow(QMainWindow):
         self.ui.btn_menu_config.clicked.connect(
             lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_3))
 
-    # == Set up => GRAPHS == #
-    def setup_graphs(self):        
-        self.graph_manager = GraphManager(self)
-        
     # ================================================================= #
 
     # == MousePress Event == #
@@ -258,7 +254,7 @@ class MainWindow(QMainWindow):
         
         if update_ports_on_start == True:
             self.ui.btn_auto_update.setChecked(True)
-            self.connection_buffer.update_ports()
+            self.connection_buffer.update_ports(override_message=True)
             
         if maximized_on_start == True:
             self.ui.btn_start_max.setChecked(True)

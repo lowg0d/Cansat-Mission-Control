@@ -62,7 +62,7 @@ class GraphManager(QObject):
             
             
         except Exception as e:
-            print(f"[WARNING] Graph Update Data NOT a int - {e}")
+            print(f"[WARNING] UPDATING - {e}")
             
     # ================================================================= #
             
