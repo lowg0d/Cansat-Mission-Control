@@ -1,0 +1,11 @@
+{
+  "serial":{
+    "ports_update": "<b style='color:#8cb854;'>(OK)</b> [Available Ports]: (<ins style='color:#40739e;'>$PORT_LIST</ins>)",
+    "connected": "<b style='color:#8cb854;'>(OK)</b> <ins style='color:#8cb854;'>[CONNECTED]</ins>",
+    "disconnected": "<b style='color:#8cb854;'>(OK)</b> <ins style='color:#a8002a;'>[DISCONNECTED]</ins>",
+
+    "un_plugged": "<b style='color:#a8002a;'>(!)</b> <ins style='color:#a8002a;'>[CONNECTION LOST - DEVICE UNPLUGGED]</ins>",
+    "re_plugged": "<b style='color:#8cb854;'>(OK)</b> <ins style='color:#8cb854;'>[CONNECTION RESTORED - DEVICE PLUGGED]</ins>",
+    "error_connecting": "<b style='color:#a8002a;'>(!)</b> <ins style='color:#a8002a;'>[ERROR CONNECTING]</ins>"
+  }
+}

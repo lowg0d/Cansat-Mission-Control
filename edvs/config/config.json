@@ -1,0 +1,47 @@
+{
+    "connection": {
+        "bauds_default": "9600",
+        "time_out": 1,
+        "bauds_dic": {
+            "1200": 1200,
+            "2400": 2400,
+            "4800": 4800,
+            "9600": 9600,
+            "19200": 19200,
+            "38400": 38400,
+            "57600": 57600,
+            "115200": 115200
+        }
+    },
+    "graphs": {
+        "dummy": {
+            "default_update_time": 1.0
+        },
+        "settings": {
+            "antialias": true,
+            "opengl": false,
+            "cupy": true,
+            "numba": true,
+            "segmentedLineMode": "on"
+        }
+    },
+    "application": {
+        "name": "EDVS",
+        "author": "Martin Ortiz",
+        "license": "The MIT License (MIT)",
+        "cp": "Copyright (C) 2023 EDVS, Martin Ortiz, Tecnoclub Elburgo",
+        "description": "Elburgo Data Visualization Software is a python Ground Station tool that analyze, visualizate and process arduino data.",
+        "icon_path": "./edvs/guis/ui_resources/app_icon.ico",
+        "settings": {
+            "command_prefix": "/",
+            "logs_folder": "./saves",
+            "on_start_maximized": false,
+            "on_start_port_update": true
+        }
+    },
+    "version": {
+        "version": "1.0",
+        "build": "0.0.3.3",
+        "status": "BETA"
+    }
+}
