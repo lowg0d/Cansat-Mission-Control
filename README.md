@@ -3,7 +3,7 @@
 # EDVS - Cansat Ground Station Gui
 
 SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI built in *python* with PyQt5 & pyqtgraph. More features like: **simulation mode** with no hardware needed, also can be used as a cooler serial monitor & more things...
-![Feature Explanation Video](https://www.youtube.com/@lowgod9010)
+[Feature Explanation Video](https://www.youtube.com/@lowgod9010)
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGJiYzQ3NGFjMWI0MmE5ZjEzMjRjYjM5MTI2YTI3YTY4N2Q1YmU4OSZjdD1n/vXACYcx3Jrt4kkuptc/giphy.gif)
 
@@ -24,7 +24,7 @@ SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI
 ## Currently working
 On flight recontrusction
 
-## LICENSE: ![CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+## LICENSE: [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 * **WHY NOT MIT??????????????????**
 > I don't want this software or its derivatives to be sold or make a profit, I think it should be free and open source, this software will always be free for anyone who needs it. Don't get me wrong, I think it's completely fair for someone to profit from what he's done, but I won't.
 
