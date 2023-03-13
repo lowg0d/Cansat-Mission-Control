@@ -19,7 +19,7 @@
         },
         "settings": {
             "antialias": true,
-            "opengl": false,
+            "opengl": true,
             "cupy": true,
             "numba": true,
             "segmentedLineMode": "on"
