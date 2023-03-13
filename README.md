@@ -11,15 +11,12 @@ SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI
 * Feature Explanation Video [here](https://www.youtube.com/@lowgod9010)
 * Tutorials [here](https://www.youtube.com/@lowgod9010)
 
-> * EXAMPLE
-> * Whatever
-
-## Contents
-> * SetUp
+* [Known Bugs](#known-bugs)
+* [Working On](#currently-working)
+* [License](#license)
 
 ## Known bugs
 > * EXAMPLE
-
 
 ## Currently working
 On flight recontrusction
