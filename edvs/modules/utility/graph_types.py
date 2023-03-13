@@ -108,11 +108,8 @@ class GpsPlotWidget(pg.PlotItem):
         self.graph_data['x'].append(longitude)
         self.graph_data['y'].append(latitude)
 
-        if len(self.graph_data['x']) <= 9:
+        if len(self.graph_data['x']) <=20:
             self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'])
             
         else:
-            self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'], symbol=None)
-            self.graph_data['x'] = self.graph_data['x'][1:]
-            self.graph_data['y'] = self.graph_data['y'][1:]
             self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'])
