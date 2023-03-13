@@ -7,9 +7,8 @@
 © Elburgo Tecnoclub - Martin Ortiz.
 © Elburgo Data Visualization Software.
 -- @Version: 1.0-BETA
--- @data: 2/20/2023
+-- @data: 3/13/2023
 """
-# ================================================================= #
 
 from . connection_buffer import ConnectionBuffer
 from . clock_updater import ClockUpdater 

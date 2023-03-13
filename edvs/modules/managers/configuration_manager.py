@@ -7,18 +7,16 @@
 © Elburgo Tecnoclub - Martin Ortiz.
 © Elburgo Data Visualization Software.
 -- @Version: 1.0-BETA
--- @data: 2/20/2023
+-- @data: 3/13/2023
 """
-
-# ============================================================== #
 
 import sys
 import json
 
+# ============================================================== #
+
 configuration_file_path = "./edvs/config/config.json"
 message_file_path = "./edvs/config/messages.json"
-
-# ============================================================== #
 
 # get data from the configuration or message file, default file is 1, config.
 def get(index, file_index=1):

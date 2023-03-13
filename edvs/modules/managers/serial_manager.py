@@ -7,15 +7,13 @@
 © Elburgo Tecnoclub - Martin Ortiz.
 © Elburgo Data Visualization Software.
 -- @Version: 1.0-BETA
--- @data: 2/20/2023
+-- @data: 3/13/2023
 """
-
-# ============================================================== #
 
 import csv
 import time
-import numpy as np
 import winsound
+import numpy as np
 
 import serial
 import serial.tools.list_ports

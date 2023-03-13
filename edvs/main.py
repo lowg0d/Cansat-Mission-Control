@@ -7,22 +7,17 @@
 © Elburgo Tecnoclub - Martin Ortiz.
 © Elburgo Data Visualization Software.
 -- @Version: 1.0-BETA
--- @data: 2/20/2023
+-- @data: 3/13/2023
 """
-
-# ============================================================== #
 
 import os
 
-# == PyQt5 == #
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-# == import guis == #
 from edvs.guis import Ui_MainWindow
 
-# == utils + managers == #
 from edvs.modules.managers import (
     ConfigManager,
     WindowManager,

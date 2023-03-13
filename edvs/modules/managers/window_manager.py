@@ -10,10 +10,10 @@
 -- @data: 2/20/2023
 """
 
-# ============================================================== #
-
-from PyQt5 import QtCore
-from PyQt5.QtCore import QObject
+from PyQt5.QtCore import (QObject, Qt,
+                          QPropertyAnimation,
+                          QEasingCurve,
+                          QPoint)
 
 # ============================================================== #
 
@@ -29,20 +29,20 @@ class WindowManager(QObject):
 
         # == setup menu animations == #
         # on
-        self.menu_animation_on = QtCore.QPropertyAnimation(
+        self.menu_animation_on = QPropertyAnimation(
             self.ui.fr_menu, b'minimumWidth')
         self.menu_animation_on.setDuration(60)
         self.menu_animation_on.setStartValue(0)
         self.menu_animation_on.setEndValue(200)
-        self.menu_animation_on.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.menu_animation_on.setEasingCurve(QEasingCurve.InOutQuart)
 
         # off
-        self.menu_animation_off = QtCore.QPropertyAnimation(
+        self.menu_animation_off = QPropertyAnimation(
             self.ui.fr_menu, b'minimumWidth')
         self.menu_animation_off.setDuration(60)
         self.menu_animation_off.setStartValue(200)
         self.menu_animation_off.setEndValue(0)
-        self.menu_animation_off.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.menu_animation_off.setEasingCurve(QEasingCurve.InOutQuart)
 
     # ============================================================== #
 
@@ -75,8 +75,8 @@ class WindowManager(QObject):
     # == window movement == #
     def move_window(self, event):
         if self.parent.isMaximized() == False:
-            if event.buttons() == QtCore.Qt.LeftButton:
-                delta = QtCore.QPoint(event.globalPos() - self.clickPostion)
+            if event.buttons() == Qt.LeftButton:
+                delta = QPoint(event.globalPos() - self.clickPostion)
                 self.parent.move(self.parent.x() + delta.x(), self.parent.y() + delta.y())
                 self.clickPostion = event.globalPos()
                 event.accept()
