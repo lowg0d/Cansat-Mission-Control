@@ -18,5 +18,4 @@ from . window_manager import WindowManager
 from . graph_manager import GraphManager
 from . button_manager import ButtonManager
 
-import edvs.modules.managers.updates_manager as UpdatesManager
 import edvs.modules.managers.configuration_manager as ConfigManager

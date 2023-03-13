@@ -31,9 +31,8 @@ from edvs.modules.managers import (
     GraphManager,
     ButtonManager)
 
-from edvs.modules.utility import (
-    ConnectionBuffer,
-    ClockUpdater)
+from edvs.modules.utility import (ConnectionBuffer, 
+                                ClockUpdater)
 
 # ============================================================== #
 
@@ -255,18 +254,8 @@ class MainWindow(QMainWindow):
             
         path = os.path.realpath(folder)
         os.startfile(path)
-        
-    # ================================================================= #
-    
-    """
-    def check_app_version(self):
-        new_version = UpdatesManager.check_version()
-        if new_version  != False:
-            self.terminal.outdated_version_message(new_version)
-    """
 
     # ================================================================= #
-    
     def apply_config(self):
         update_ports_on_start = self.config.get(
             "application.settings.on_start_port_update")
