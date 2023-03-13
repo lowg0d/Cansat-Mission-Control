@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>907</width>
-    <height>601</height>
+    <width>1084</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -53,8 +53,8 @@ QSizeGrip{
     width: 12px;
     height: 12px;
 
-	margin: 0 1;
-	image: url(:/src/grip_icon.png);
+	margin: 0 1;	
+	image: url(:/src/icons/grip_icon.png);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -165,8 +165,8 @@ QPushButton:pressed{
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>ui_resources/icons/menu.png</normaloff>ui_resources/icons/menu.png</iconset>
+          <iconset resource="resources/src.qrc">
+           <normaloff>:/src/icons/menu.png</normaloff>:/src/icons/menu.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -391,8 +391,8 @@ background-color: rgb(39, 39, 39);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>ui_resources/icons/minimize.png</normaloff>ui_resources/icons/minimize.png</iconset>
+          <iconset resource="resources/src.qrc">
+           <normaloff>:/src/icons/minimize.png</normaloff>:/src/icons/minimize.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -432,8 +432,8 @@ background-color: rgb(39, 39, 39);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>ui_resources/icons/notfullscreen.png</normaloff>ui_resources/icons/notfullscreen.png</iconset>
+          <iconset resource="resources/src.qrc">
+           <normaloff>:/src/icons/notfullscreen.png</normaloff>:/src/icons/notfullscreen.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -473,8 +473,8 @@ background-color: rgb(39, 39, 39);</string>
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>ui_resources/icons/fullscreen.png</normaloff>ui_resources/icons/fullscreen.png</iconset>
+          <iconset resource="resources/src.qrc">
+           <normaloff>:/src/icons/fullscreen.png</normaloff>:/src/icons/fullscreen.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -520,8 +520,8 @@ QPushButton:pressed{
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>ui_resources/icons/close.png</normaloff>ui_resources/icons/close.png</iconset>
+          <iconset resource="resources/src.qrc">
+           <normaloff>:/src/icons/close.png</normaloff>:/src/icons/close.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2215,7 +2215,7 @@ color: rgba(255, 255, 255, 0.5);
   </widget>
  </widget>
  <resources>
-  <include location="ui_resources/src.qrc"/>
+  <include location="resources/src.qrc"/>
  </resources>
  <connections/>
 </ui>

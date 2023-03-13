@@ -16,7 +16,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from edvs.guis import Ui_MainWindow
+from edvs.ui import Ui_MainWindow
 
 from edvs.modules.managers import (
     ConfigManager,

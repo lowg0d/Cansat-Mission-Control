@@ -1,9 +1,0 @@
-<RCC>
-  <qresource prefix="src">
-    <file>app_icon.ico</file>
-    <file>grip_icon.png</file>
-    <file>icons/satellites.png</file>
-    <file>icons/arrow_down.png</file>
-    <file>icons/arrow_up.png</file>
-  </qresource>
-</RCC>

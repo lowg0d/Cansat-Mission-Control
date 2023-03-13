@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\edvs\guis\MainWindow.ui'
+# Form implementation generated from reading ui file '.\edvs\ui\MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(907, 601)
+        MainWindow.resize(1084, 645)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -46,8 +46,8 @@ class Ui_MainWindow(object):
 "    width: 12px;\n"
 "    height: 12px;\n"
 "\n"
-"    margin: 0 1;\n"
-"    image: url(:/src/grip_icon.png);\n"
+"    margin: 0 1;    \n"
+"    image: url(:/src/icons/grip_icon.png);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         font = QtGui.QFont()
@@ -101,7 +101,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_togle_menu.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\edvs\\guis\\ui_resources/icons/menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/src/icons/menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_togle_menu.setIcon(icon)
         self.btn_togle_menu.setIconSize(QtCore.QSize(29, 29))
         self.btn_togle_menu.setObjectName("btn_togle_menu")
@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.setStyleSheet("")
         self.btn_minimize.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\edvs\\guis\\ui_resources/icons/minimize.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/src/icons/minimize.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_minimize.setIcon(icon1)
         self.btn_minimize.setIconSize(QtCore.QSize(29, 29))
         self.btn_minimize.setObjectName("btn_minimize")
@@ -203,7 +203,7 @@ class Ui_MainWindow(object):
         self.btn_normalize.setStyleSheet("")
         self.btn_normalize.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\edvs\\guis\\ui_resources/icons/notfullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/src/icons/notfullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_normalize.setIcon(icon2)
         self.btn_normalize.setIconSize(QtCore.QSize(29, 29))
         self.btn_normalize.setObjectName("btn_normalize")
@@ -220,7 +220,7 @@ class Ui_MainWindow(object):
         self.btn_maximize.setStyleSheet("")
         self.btn_maximize.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(".\\edvs\\guis\\ui_resources/icons/fullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/src/icons/fullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_maximize.setIcon(icon3)
         self.btn_maximize.setIconSize(QtCore.QSize(29, 29))
         self.btn_maximize.setObjectName("btn_maximize")
@@ -243,7 +243,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_close.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(".\\edvs\\guis\\ui_resources/icons/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/src/icons/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_close.setIcon(icon4)
         self.btn_close.setIconSize(QtCore.QSize(29, 29))
         self.btn_close.setObjectName("btn_close")
@@ -1017,4 +1017,4 @@ class Ui_MainWindow(object):
         self.btn_auto_update.setText(_translate("MainWindow", "UPDATE PORTS ON START"))
         self.btn_set_full_screen.setText(_translate("MainWindow", "FULL SCREEN"))
         self.TelemetryGroup.setTitle(_translate("MainWindow", "FLY TELEMETRY"))
-import edvs.guis.ui_resources.src_rc
+import edvs.ui.resources.src_rc
