@@ -8,8 +8,8 @@ SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGJiYzQ3NGFjMWI0MmE5ZjEzMjRjYjM5MTI2YTI3YTY4N2Q1YmU4OSZjdD1n/vXACYcx3Jrt4kkuptc/giphy.gif)
 
 ## Contents
-* ![Feature Explanation Video](https://www.youtube.com/@lowgod9010)
-* ![Customization Tutorial](https://www.youtube.com/@lowgod9010)
+* Feature Explanation Video[text](https://www.youtube.com/@lowgod9010)
+* Tutorials [text](https://www.youtube.com/@lowgod9010)
 
 > * EXAMPLE
 > * Whatever
@@ -23,3 +23,5 @@ SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI
 
 ## Currently working
 On flight recontrusction
+
+## LICENSE: CC BY-NC-SA 3.0[text](https://www.youtube.com/@lowgod9010)
