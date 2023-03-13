@@ -1404,7 +1404,7 @@ border-color: rgb(140, 184, 84);
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_1">
           <property name="styleSheet">
@@ -1436,7 +1436,6 @@ QScrollBar::sub-line{
 }
 
 QScrollBar::sub-line:vertical {
-	image: url(:/src/icons/arrow_up.png);
 	border: none;
 	background-color: rgb(50, 52, 54);
 	height: 15px;
@@ -1451,7 +1450,6 @@ QScrollBar::sub-line:vertical:pressed {
 }
 
 QScrollBar::add-line:vertical {
-	image: url(:/src/icons/arrow_down.png);
 	border: none;
 	background-color: rgb(50, 52, 54);
 	height: 15px;

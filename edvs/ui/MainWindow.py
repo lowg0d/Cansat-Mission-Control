@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lb_countdown.sizePolicy().hasHeightForWidth())
         self.lb_countdown.setSizePolicy(sizePolicy)
-        self.lb_countdown.setMinimumSize(QtCore.QSize(76, 35))
+        self.lb_countdown.setMinimumSize(QtCore.QSize(90, 35))
         self.lb_countdown.setMaximumSize(QtCore.QSize(79, 35))
         self.lb_countdown.setStyleSheet("QLabel{\n"
 "color: rgba(255, 255, 255, 0.2);\n"
@@ -635,7 +635,6 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    image: url(:/src/icons/arrow_up.png);\n"
 "    border: none;\n"
 "    background-color: rgb(50, 52, 54);\n"
 "    height: 15px;\n"
@@ -650,7 +649,6 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical {\n"
-"    image: url(:/src/icons/arrow_down.png);\n"
 "    border: none;\n"
 "    background-color: rgb(50, 52, 54);\n"
 "    height: 15px;\n"
@@ -982,7 +980,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
