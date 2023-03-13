@@ -99,7 +99,7 @@ class TerminalManager(QObject):
 
             else:
                 self.write(f"<b style='color:#a8002a;'>(!) Dummy is Disabled </b>")
-
+                
         else:
             self.write(f"<b style='color:#a8002a;'>(!) Unknown command '{data}' - try /help</b>")
 

@@ -12,7 +12,7 @@
 
 import pyqtgraph as pg
 
-from PyQt5.QtCore import QObject
+from PyQt5.QtCore import QObject, QDateTime
 from PyQt5.QtGui import QPainter
 
 from edvs.modules.utility import (
@@ -30,11 +30,12 @@ class GraphManager(QObject):
         self.ui = parent.ui
         self.last_sats = 100
         
-        # ================================================================= #
-        
         self.set_config()
         self.set_layout()
         self.set_graphs()
+
+        self.last_update_time = QDateTime.currentDateTime()
+        self.total_time = 0
 
     # ================================================================= #
 
@@ -43,15 +44,21 @@ class GraphManager(QObject):
             value_chain = []
             value_chain = value
 
-            self.graph_temp.update(value_chain[0])
-            self.graph_humidity.update(value_chain[1])
-            self.graph_bp.update(value_chain[2])
+            now = QDateTime.currentDateTime()
+            time_mission = self.last_update_time.msecsTo(now) / 1000
+            self.last_update_time = now
             
-            self.update_labels(value_chain[3],value_chain[3])
-            self.graph_speed.update(float(value_chain[7]))
+            self.total_time += time_mission
+
+            self.graph_temp.update(value_chain[0],time_mission)
+            self.graph_humidity.update(value_chain[1],time_mission)
+            self.graph_bp.update(value_chain[2],time_mission)
+            
+            self.update_labels(value_chain[3],int(self.total_time))
             
             self.graph_gps.update(value_chain[4],value_chain[5])
-            self.graph_altitude.update(value_chain[6])
+            self.graph_altitude.update(value_chain[6],time_mission)
+            self.graph_speed.update(value_chain[7],time_mission)
             
             
         except Exception as e:
@@ -60,6 +67,7 @@ class GraphManager(QObject):
     # ================================================================= #
             
     def set_graphs(self):
+        # create the graphics
         self.graph_temp = MonoAxisPlotWidget(
             title="TEMP(ºC)",
             linspace_x=50,
@@ -93,9 +101,8 @@ class GraphManager(QObject):
         self.graph_gps = GpsPlotWidget(
             title="LAT/LON"
         )
-        
-        # ================================================================= #
-        
+
+        # add the graphics to the layouts
         self.graphs_suprerior_layout.addItem(self.graph_temp)
         self.graphs_suprerior_layout.addItem(self.graph_bp)
         
@@ -103,7 +110,7 @@ class GraphManager(QObject):
         self.graphs_inferior_layout.addItem(self.graph_humidity)
         self.graphs_inferior_layout.addItem(self.graph_speed)
         self.graphs_inferior_layout.addItem(self.graph_gps)
-        
+                
     # ================================================================= #
         
     def set_config(self):
@@ -119,46 +126,47 @@ class GraphManager(QObject):
     # ================================================================= #
 
     def set_layout(self):        
-        # create a graphic layout
+
+        # create a pyqtgraph layout
         self.layout = pg.GraphicsLayoutWidget()
         self.layout.setAntialiasing(True)
         self.layout.setRenderHints(QPainter.Antialiasing)
-        
-        # ================================================================= #
-        
-        # create a seconday layout
+
+        # create a container layout for the layout that will display the graphs
         self.graphs_layout = self.layout.addLayout(
             colspan=1, 
             rowspan=1)
-        
+
+        # superior graph layout
         self.graphs_suprerior_layout = self.graphs_layout.addLayout(
             rowspan=1, 
             colspan=1,
             border=(63, 63, 63, 50))
         
+        # next of the container layout row
         self.graphs_layout.nextRow()
-        
+
+        # create a inferior layout
         self.graphs_inferior_layout = self.graphs_layout.addLayout(
             rowspan=1,
             colspan=1,
             border=(63, 63, 63, 50))
-        
-        # ================================================================= #
-        
+
+        # set contents margins and spacing
         self.graphs_suprerior_layout.setContentsMargins(0, 0, 0, 0)
         self.graphs_inferior_layout.setContentsMargins(0, 0, 0, 0)
         self.graphs_layout.setContentsMargins(0, 0, 0, 0)
-        
-        self.graphs_suprerior_layout.setSpacing(4)
-        self.graphs_inferior_layout.setSpacing(4)
-        self.graphs_layout.setSpacing(4)
-        
+
+        self.graphs_suprerior_layout.setSpacing(3)
+        self.graphs_inferior_layout.setSpacing(3)
+        self.graphs_layout.setSpacing(0)
+
+        # add the layout to the UI
         self.ui.telemetry_graphs.addWidget(self.layout)
     
     # ================================================================= #
     
-    def update_labels(self, sats, send_time):
-        
+    def update_labels(self, sats, time):
         if sats != self.last_sats:
             self.last_sats = sats
             satellites_color = "#8cb854"
@@ -167,9 +175,9 @@ class GraphManager(QObject):
             if float(sats) < 1:
                 satellites_color = "#a8002a"
             
-            self.parent.ui.lb_connection_info.setText(
-                f"<b style='color:{satellites_color};'>{sats} SATS</b>")
-    
-            self.parent.ui.lb_info.setText(
-                f"<b style='color:{satellites_color};'>{sats} SATS</b>")
+            self.parent.ui.lb_telemetry_info_1.setText(
+                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
+
+            self.parent.ui.lb_countdown.setText(
+                f"T+ <b style='color:#8cb854;'>{time}</b> s")
         

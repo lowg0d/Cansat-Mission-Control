@@ -39,21 +39,23 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        # == Managers == #
+        # Managers Instances
         self.config = ConfigManager
         self.window_manager = WindowManager(self) 
         self.terminal = TerminalManager(self)
         self.serial = SerialManager(self)
         self.clock_updater = ClockUpdater(self)
         self.button_manager = ButtonManager(self)
-        # == Utility == # 
+        
+        # Utility Instances
         self.connection_buffer = ConnectionBuffer(self)
         self.serial.data_available.connect(self.terminal.write)
         
-        # == SetUps == #
+        # Set ups
         self.setup_window()
         self.setup_buttons() 
         self.setup_graphs()
+        self.apply_config()
         
         # connect graph updater to the signal
         self.serial.update_graphs.connect(self.graph_manager.update)
@@ -65,22 +67,18 @@ class MainWindow(QMainWindow):
         # == send bootup message
         self.terminal.boot_up_message()
         self.update_status_bar("Sucesfully Started")
-        self.apply_config()
         
         # show
         self.show()
-        
-        # version check
-        #self.check_app_version()
     
     # ================================================================= #
     
     # == Set up => WINDOW == #
     def setup_window(self):
-        
         # get values from configution
         window_name = self.config.get("application.name")
         window_icon = self.config.get("application.icon_path")
+        
         self.app_status = self.config.get("version.status")
         self.application_build = self.config.get("version.build")
         self.app_version = self.config.get("version.version")
@@ -95,7 +93,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(window_name)
         self.setWindowIcon(QIcon(window_icon))
 
-        # window focus
+        # == window focus == #
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
 
         # == draggable window == #

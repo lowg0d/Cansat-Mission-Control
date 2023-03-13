@@ -241,7 +241,7 @@ background-color: rgb(39, 39, 39);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="lb_connection_info">
+        <widget class="QLabel" name="lb_countdown">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
            <horstretch>0</horstretch>
@@ -250,7 +250,7 @@ background-color: rgb(39, 39, 39);</string>
          </property>
          <property name="minimumSize">
           <size>
-           <width>76</width>
+           <width>90</width>
            <height>35</height>
           </size>
          </property>
@@ -301,7 +301,7 @@ color: rgba(255, 255, 255, 0.2);
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="lb_info">
+        <widget class="QLabel" name="lb_telemetry_info_1">
          <property name="minimumSize">
           <size>
            <width>76</width>
@@ -1404,7 +1404,7 @@ border-color: rgb(140, 184, 84);
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_1">
           <property name="styleSheet">
@@ -1818,7 +1818,7 @@ QPushButton:pressed{
                   <widget class="QPushButton" name="btn_opn_logs">
                    <property name="minimumSize">
                     <size>
-                     <width>130</width>
+                     <width>100</width>
                      <height>25</height>
                     </size>
                    </property>
@@ -1841,7 +1841,7 @@ QPushButton:pressed{
                     <string notr="true">border-radius: 2px;</string>
                    </property>
                    <property name="text">
-                    <string>open saves folder</string>
+                    <string>open saves </string>
                    </property>
                   </widget>
                  </item>
@@ -2127,6 +2127,9 @@ color: rgba(255, 255, 255, 0.5);
                 <property name="title">
                  <string>FLY TELEMETRY</string>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
                 <property name="flat">
                  <bool>false</bool>
                 </property>
@@ -2156,6 +2159,9 @@ color: rgba(255, 255, 255, 0.5);
                   <layout class="QVBoxLayout" name="telemetry_graphs">
                    <property name="spacing">
                     <number>0</number>
+                   </property>
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetMaximumSize</enum>
                    </property>
                    <property name="leftMargin">
                     <number>0</number>
