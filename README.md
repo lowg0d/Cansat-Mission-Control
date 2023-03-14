@@ -19,13 +19,13 @@
 > * [License](#license)
 
 ## Installation
-> Windows
+* Windows
 ```shell
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-> Linux
+* Linux
 ```shell
 python -m venv .venv
 source .venv/bin/activate
