@@ -19,8 +19,13 @@
 > * [License](#license)
 
 ## Installation
-> 1.- Download the code
-then go into the folder
+> Windows
+```shell
+python -m venv .venv
+source .venv/bin/activate
+```
+
+> Linux
 ```shell
 python -m venv .venv
 source .venv/bin/activate
