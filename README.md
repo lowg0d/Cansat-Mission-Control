@@ -38,4 +38,4 @@ source .venv/bin/activate
 > * Software in this repository is licensed under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) unless otherwise **indicated**.
 
 **WHY NOT MIT??????????????????**
-> * I don't want this software or its derivatives to be sold or make a profit, I think it should be free and open source, this software will always be free for anyone who needs it. Don't get me wrong, I think it's completely fair for someone to profit from what he's done, but I won't.
+> * I don't want this software or its derivatives to be sold or make a profit, I think it should be free and open source, this software will always be free for anyone who needs it.
