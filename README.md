@@ -19,12 +19,18 @@
 > * [License](#license)
 
 ## Installation
+> 1.- Download the code
+then go into the folder
+```shell
+python -m venv .venv
+source .venv/bin/activate
+```
 
 ## Known bugs
 > * EXAMPLE
 
 ## Currently working
-On flight recontrusction
+> * flight recontrusction
 
 ## LICENSE:
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" /></a><br />
