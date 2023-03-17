@@ -128,10 +128,6 @@ class SerialManager(QObject):
     
     # == Dummy Serial == #
     def dummy_serial(self):
-        """
-        data_dic = np.concatenate(([1], np.random.choice(range(-20, 100), 2), [np.random.randint(0, 4)], np.random.choice(range(-10, 20), 8)))
-        """
-        
         # Generate random data with correlation to the last data value
         humidity = np.random.uniform(0, 100)
         pressure = np.random.uniform(800, 1200)
