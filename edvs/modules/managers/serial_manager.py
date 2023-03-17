@@ -60,6 +60,11 @@ class SerialManager(QObject):
         self.message_unplugged = self.config.get("serial.un_plugged",2)
         self.message_replugged = self.config.get("serial.re_plugged",2)
     
+        self.last_latitude = 42.84283
+        self.last_longitude = -2.66806
+        self.last_temperature = 15
+        self.last_altitude = 0.0
+    
     # ================================================================= #
     
     # == Update Ports == #
@@ -127,34 +132,30 @@ class SerialManager(QObject):
         data_dic = np.concatenate(([1], np.random.choice(range(-20, 100), 2), [np.random.randint(0, 4)], np.random.choice(range(-10, 20), 8)))
         """
         
-        # Initialize the last data value to use as a reference point
-        last_latitude = 42.84283
-        last_longitude = -2.66806
-        last_temperature = 14
-        last_altitude = 0.0
-
         # Generate random data with correlation to the last data value
         humidity = np.random.uniform(0, 100)
         pressure = np.random.uniform(800, 1200)
-        random_value = np.random.randint(0, 10)
-        latitude = last_latitude + np.random.uniform(0.21, 0.01)
-        longitude = last_longitude + np.random.uniform(0.11, 0.01)
-        speed = np.random.uniform(0, 100)
-        altitude = np.random.uniform(0, 70) + last_altitude
+        random_value = np.random.randint(0, 6)
 
-        temperature_decrease = np.random.uniform(-10, 1)
-        temperature = max(last_temperature - temperature_decrease, 0)
+        latitude = self.last_latitude + np.random.uniform(0.21, 0.01)
+        longitude = self.last_longitude + np.random.uniform(0.11, 0.01)
+        
+        speed = np.random.uniform(0, 200)
+        
+        altitude = self.last_altitude + np.random.uniform(0, 70)
+        temperature = self.last_temperature - np.random.uniform(0, 2)
         
         # Combine the data into a numpy array
         data_dic = np.concatenate(([temperature], [humidity], [pressure], [random_value], [latitude], [longitude], [speed], [altitude]))
 
         # Update the last data value
-        last_latitude = latitude
-        last_longitude = longitude
-        last_temperature = temperature
+        self.last_latitude = latitude
+        self.last_longitude = longitude
+        self.last_temperature = temperature
+        self.last_altitude = altitude
         
         self.update_graphs.emit(list(data_dic))
-        self.data_available.emit(f"<ins style>{data_dic}")
+        self.data_available.emit(f"{data_dic}")
         
         time.sleep(self.dummy_update_time)
     

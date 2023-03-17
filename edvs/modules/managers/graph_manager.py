@@ -47,19 +47,16 @@ class GraphManager(QObject):
             now = QDateTime.currentDateTime()
             time_mission = self.last_update_time.msecsTo(now) / 1000
             self.last_update_time = now
-            
-            self.total_time += time_mission
 
             self.graph_temp.update(value_chain[0],time_mission)
             self.graph_humidity.update(value_chain[1],time_mission)
             self.graph_bp.update(value_chain[2],time_mission)
             
-            self.update_labels(value_chain[3],int(self.total_time))
+            self.update_labels(value_chain[3])
             
             self.graph_gps.update(value_chain[4],value_chain[5])
             self.graph_altitude.update(value_chain[6],time_mission)
             self.graph_speed.update(value_chain[7],time_mission)
-            
             
         except Exception as e:
             print(f"[WARNING] UPDATING - {e}")
@@ -166,7 +163,7 @@ class GraphManager(QObject):
     
     # ================================================================= #
     
-    def update_labels(self, sats, time):
+    def update_labels(self, sats):
         if sats != self.last_sats:
             self.last_sats = sats
             satellites_color = "#8cb854"
@@ -179,5 +176,4 @@ class GraphManager(QObject):
                 f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
 
             self.parent.ui.lb_countdown.setText(
-                f"T+ <b style='color:#8cb854;'>{time}</b> s")
-        
+                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")

@@ -25,7 +25,7 @@ class ClockUpdater(QObject):
 
     def update_global_time_label(self):
         t = QTime.currentTime()
-        self.ui.time_label.setText(f"CET: <b style='color:rgba(235,235,255,0.4);'>{t.toString(Qt.ISODate)}</b>")
+        self.ui.time_label.setText(f"<b style='color:rgba(235,235,255,0.4);'>{t.toString(Qt.ISODate)}</b> CET")
         
     def start_time_update_thread(self):
         self.time_update_worker = self.TimeUpdateThread(self)
