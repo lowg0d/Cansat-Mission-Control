@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1084, 645)
+        MainWindow.resize(1105, 664)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -135,8 +135,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lb_countdown.sizePolicy().hasHeightForWidth())
         self.lb_countdown.setSizePolicy(sizePolicy)
-        self.lb_countdown.setMinimumSize(QtCore.QSize(90, 35))
-        self.lb_countdown.setMaximumSize(QtCore.QSize(79, 35))
+        self.lb_countdown.setMinimumSize(QtCore.QSize(75, 35))
+        self.lb_countdown.setMaximumSize(QtCore.QSize(75, 35))
         self.lb_countdown.setStyleSheet("QLabel{\n"
 "color: rgba(255, 255, 255, 0.2);\n"
 "background-color: rgb(39, 39, 39);\n"
@@ -157,8 +157,8 @@ class Ui_MainWindow(object):
         self.line_hide_2.setObjectName("line_hide_2")
         self.horizontalLayout.addWidget(self.line_hide_2)
         self.lb_telemetry_info_1 = QtWidgets.QLabel(self.fr_top_bar)
-        self.lb_telemetry_info_1.setMinimumSize(QtCore.QSize(76, 35))
-        self.lb_telemetry_info_1.setMaximumSize(QtCore.QSize(79, 35))
+        self.lb_telemetry_info_1.setMinimumSize(QtCore.QSize(75, 35))
+        self.lb_telemetry_info_1.setMaximumSize(QtCore.QSize(75, 35))
         self.lb_telemetry_info_1.setStyleSheet("color: rgba(255, 255, 255, 0.2);\n"
 "background-color: rgb(39, 39, 39);")
         self.lb_telemetry_info_1.setAlignment(QtCore.Qt.AlignCenter)
@@ -1018,3 +1018,4 @@ class Ui_MainWindow(object):
         self.btn_set_full_screen.setText(_translate("MainWindow", "FULL SCREEN"))
         self.TelemetryGroup.setTitle(_translate("MainWindow", "FLY TELEMETRY"))
 import edvs.ui.resources.src_rc
+
