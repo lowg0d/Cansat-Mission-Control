@@ -86,3 +86,6 @@ python .\launcher.py
 
 **WHY NOT MIT??????????????????**
 > * I don't want this software or its derivatives to be sold or make a profit, I think it should be free and open source, this software will always be free for anyone who needs it.
+
+## Inspiration:
+>* **Mayor inspiration for Graphs:** https://github.com/el-NASA/CanSat-Ground-station
