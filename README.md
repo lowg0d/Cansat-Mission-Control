@@ -19,6 +19,8 @@
 > * [License](#license)
 
 ## Installation
+> Clone this repository and then get into the folder. In the terminal write the following command depending on your OS:
+
 * Windows
 ```shell
 python -m venv .venv
@@ -31,11 +33,21 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
+> Then install the requirements with (no matter your os):
+```shell
+pip install -r .\requirements.txt```
+
+> After this the program should be good to go, to initialize the program type:
+```shell
+python .\launcher.py```
+
 ## Known bugs
-> * EXAMPLE
+>* Graphs Randomly resize depending on the data
+>* The full timeline is not shown in the x axis of the graph
 
 ## Currently working
 > * flight recontrusction
+> * The bugs
 
 ## LICENSE:
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" /></a><br />
