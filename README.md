@@ -50,7 +50,7 @@ pip install -r .\requirements.txt
 python .\launcher.py
 ```
 
-##how-to-use
+#how-to-use
 Just select the port and the baudrates and connct it !
 
 ## Custom Graphs
