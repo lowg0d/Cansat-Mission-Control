@@ -16,48 +16,6 @@ import numpy as np
 from PyQt5.QtGui import QColor, QBrush
 
 # ================================================================= #
-class MonoAxisPlotWidget1(pg.PlotItem):
-    def __init__(self, parent=None, labels={'bottom': 'T(s)'}, title=None,
-                 color: str = "#00BA42", enableMenu=False, linspace_x=100, **kargs):
-        super().__init__(parent=parent, labels=labels, title=title,
-                         enableMenu=enableMenu, **kargs)
-
-        x_vals = np.arange(0, 0, linspace_x)
-        self.graph_plot = self.plot(
-            x=x_vals, 
-            pen=pg.mkPen(color, width=2.5), 
-            antialias=True, connect='finite')
-        
-        self.graph_plot.pxMode = False
-
-        fill_color = QColor(color)
-        fill_color.setAlpha(20)
-        brush = QBrush(fill_color)
-        
-        self.graph_plot.setFillBrush(brush)
-        self.graph_plot.setFillLevel(0)
-        self.graph_plot.setDownsampling(auto=True)
-        
-        self.graph_data = np.zeros(linspace_x)
-
-        self.curve = pg.PlotCurveItem()
-        self.curve.pxMode = False
-        self.addItem(self.curve)
-        
-        self.ptr1 = 0
-
-    def update(self, value, elapsed_time):
-        value = float(value)
-    
-        self.graph_data[:-1] = self.graph_data[1:]
-        self.graph_data[-1] = value
-        
-        x_vals = np.linspace(self.ptr1, self.ptr1 + elapsed_time, len(self.graph_data))
-        self.ptr1 += float(elapsed_time)
-        
-        self.setXRange(self.ptr1 - elapsed_time, self.ptr1, padding=0)        
-        self.graph_plot.setData(x=x_vals, y=self.graph_data)
-
 class MonoAxisPlotWidget(pg.PlotItem):
     def __init__(self, parent=None, labels={'bottom': 'T(s)'}, title=None,
                  color: str = "#00BA42", enableMenu=False, linspace_x=100, **kargs):
