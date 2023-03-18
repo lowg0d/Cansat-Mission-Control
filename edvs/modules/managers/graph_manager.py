@@ -113,16 +113,17 @@ class GraphManager(QObject):
         )
         
         self.graph_gps = GpsPlotWidget(
-            title="LAT/LON"
+            title="LAT/LON",
+            color="#f1c40f"
         )
         
         # add the graphs to the layouts
         self.graphs_suprerior_layout.addItem(self.graph_temp)
         self.graphs_suprerior_layout.addItem(self.graph_bp)
         
+        self.graphs_inferior_layout.addItem(self.graph_speed)
         self.graphs_inferior_layout.addItem(self.graph_altitude)
         self.graphs_inferior_layout.addItem(self.graph_humidity)
-        self.graphs_inferior_layout.addItem(self.graph_speed)
         self.graphs_inferior_layout.addItem(self.graph_gps)
                 
     # ================================================================= #

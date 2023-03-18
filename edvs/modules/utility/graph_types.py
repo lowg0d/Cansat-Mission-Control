@@ -51,9 +51,9 @@ class MonoAxisPlotWidget(pg.PlotItem):
         self.showGrid(x=True, y=True)
         self.getAxis('bottom').setPen(pg.mkPen('#777'))
         self.getAxis('left').setPen(pg.mkPen('#777'))
-        self.hideButtons()
-
+        
         self.getViewBox().disableAutoRange(axis="x")
+        self.hideButtons()
         self.getViewBox().setMouseEnabled(x=False, y=False)
         
     def update(self, value, elapsed_time):
@@ -86,7 +86,8 @@ class GpsPlotWidget(pg.PlotItem):
         self.graph_plot = self.plot(
             pen=pg.mkPen(fill_color, width=2),
             antialias=True, 
-            connect='finite')
+            connect='finite',
+            symbol=None)
 
         self.graph_plot.setDownsampling(auto=True)
         self.graph_plot.pxMode = False
@@ -97,6 +98,9 @@ class GpsPlotWidget(pg.PlotItem):
         self.showGrid(x=True, y=True)
         self.getAxis('bottom').setPen(pg.mkPen('#777'))
         self.getAxis('left').setPen(pg.mkPen('#777'))
+
+        self.hideButtons()
+        self.getViewBox().setMouseEnabled(x=False, y=False)
 
     def update(self, latitude, longitude):
         longitude = float(longitude)
@@ -110,7 +114,7 @@ class GpsPlotWidget(pg.PlotItem):
             self.graph_data['y'].pop(0)
 
         self.lastet_data = {'x': [longitude], 'y': [latitude]}
-        self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'], symbol=None)
+        self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'])
         self.scatter_plot.setData(self.lastet_data['x'], self.lastet_data['y'], symbol='x', connect='finite')
         
         x_range = (min(self.graph_data['x']) - 0.01, max(self.graph_data['x']) + 0.01)
