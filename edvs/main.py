@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
             
         path = os.path.realpath(folder)
         os.startfile(path)
-
+        
     # ================================================================= #
     def apply_config(self):
         update_ports_on_start = self.config.get(
