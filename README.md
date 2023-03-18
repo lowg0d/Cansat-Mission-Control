@@ -59,14 +59,15 @@ python .\launcher.py
 * Terminal Commands:
 > Type "/help" to show all the command in the terminal line, if the message start with the command prefix (you can change it in the config) the data is not sent, but interpreted as a command.
 
-## Dummy:
+* Dummy:
 >* "/dummy.on" for starting the simulation
 >* "/dummy.off" you can guess
 >* "/dummy.time <time>" change the update time for the data to appear, time need to be a float and in seconds, 0.5 for half a second 1.0 for a second.
 
 * UnPlug Mode:
 > Unplug it !!
-## Saves
+
+* Saves
 > The record button saves all the data comming from the serial port to a csv file, you can open the folder in config tab or by a typing "/saves" in the terminal.
 
 ## Known bugs
