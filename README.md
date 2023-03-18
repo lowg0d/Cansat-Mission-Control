@@ -4,12 +4,12 @@
 
 ## What's this !??
 > * SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI built in *Python 3.11.1* with PyQt5 & pyqtgraph. With features like: **simulation mode** with no hardware needed, also can be used as a cooler serial monitor & more things...
-[Feature Explanation Video](https://www.youtube.com/@lowgod9010)
+[Feature Explanation Video](https://www.youtube.com/watch?v=cgqOD5_pZTY)
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjE5ZGM2ZjhlZjNjNjE3MmE0Njc4NGY2NDU3MDA1ZGU1MmQ5YjFmNyZjdD1n/7VuKns94zZbgkmnfyr/giphy.gif)
 
 ## Features
-> * [Feature Explanation Video](https://www.youtube.com/@lowgod9010)
+> * [Feature Explanation Video](https://www.youtube.com/watch?v=cgqOD5_pZTY)
  Serial Communication, can be used as a serial monitor for sending and receive data.
 >* Full Customization of the graphs, add, change, delete, The Ui file is on the code so you can edit it, also can add more "blocks" on the topbar for displaying data that does not need a graph. 
 >* Simulation mode for use without hardware, you can change the time for each update.
