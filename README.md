@@ -35,11 +35,13 @@ source .venv/bin/activate
 
 > Then install the requirements with (no matter your os):
 ```shell
-pip install -r .\requirements.txt```
+pip install -r .\requirements.txt
+```
 
 > After this the program should be good to go, to initialize the program type:
 ```shell
-python .\launcher.py```
+python .\launcher.py
+```
 
 ## Known bugs
 >* Graphs Randomly resize depending on the data
