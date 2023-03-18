@@ -207,9 +207,7 @@ class SerialManager(QObject):
                         
                     # == DEVICE UNPLUGGED == #
                     else:
-                        self.parent.parent.update_status_bar("Unplugged")
-                        self.parent.ui.lb_connection_info.setText(
-                            "<b style='color:#a8002a;'>UNPLUGGED</b>")
+                        self.parent.parent.update_status_bar("// !! Unplugged !!")
                         
                         self.parent.data_available.emit(
                             self.parent.message_unplugged)
@@ -220,9 +218,6 @@ class SerialManager(QObject):
 
                                 self.parent.data_available.emit(
                                     self.parent.message_replugged)
-                                
-                                self.parent.ui.lb_connection_info.setText(
-                                    f"<strong style='color:#8cb854'>{self.parent.ser.portstr}</strong>")
 
                                 self.parent.parent.update_status_bar(f"// CONNECTED -> {self.parent.ser.portstr} <- {self.parent.ser.baudrate}")
 
