@@ -11,10 +11,10 @@
 ## Features
 > * [Feature Explanation Video](https://www.youtube.com/@lowgod9010)
  Serial Communication, can be used as a serial monitor for sending and receive data.
-* Full Customization of the graphs, add, change, delete, The Ui file is on the code so you can edit it, also can add more "blocks" on the topbar for displaying data that does not need a graph. 
-* Simulation mode for use without hardware.
-* UnPlug Detection.
-* Display of the current time
+>* Full Customization of the graphs, add, change, delete, The Ui file is on the code so you can edit it, also can add more "blocks" on the topbar for displaying data that does not need a graph. 
+>* Simulation mode for use without hardware, you can change the time for each update.
+>* UnPlug Detection, if you unplug de device without desconecting your computer is going to beep :)
+>* Display of the current time, is displayed in CET but you can change that also.
 
 ## Contents
 > * [Installation](#installation)
@@ -52,7 +52,8 @@ python .\launcher.py
 >* The full timeline is not shown in the x axis of the graph
 
 ## Currently working
-> * flight recontrusction
+> * Fixing Things
+> * Flight recontrusction
 > * The bugs
 
 ## LICENSE:
