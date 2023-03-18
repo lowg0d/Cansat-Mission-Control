@@ -15,6 +15,8 @@
 >* Simulation mode for use without hardware, you can change the time for each update.
 >* UnPlug Detection, if you unplug de device without desconecting your computer is going to beep :)
 >* Display of the current time, is displayed in CET but you can change that also.
+>* It has a burger menu for displaying the connection info, you can hide it when you are not using it.
+>* It has keybinds for moving between the pages, F1: terminal, F2: Flight or data plotting, F11: show in fullscreen.
 
 ## Contents
 > * [Installation](#installation)
