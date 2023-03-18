@@ -8,9 +8,13 @@
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGJiYzQ3NGFjMWI0MmE5ZjEzMjRjYjM5MTI2YTI3YTY4N2Q1YmU4OSZjdD1n/vXACYcx3Jrt4kkuptc/giphy.gif)
 
-## Tutorials
+## Features
 > * [Feature Explanation Video](https://www.youtube.com/@lowgod9010)
-> * [Tutorials](https://www.youtube.com/@lowgod9010)
+ Serial Communication, can be used as a serial monitor for sending and receive data.
+* Full Customization of the graphs, add, change, delete, The Ui file is on the code so you can edit it, also can add more "blocks" on the topbar for displaying data that does not need a graph. 
+* Simulation mode for use without hardware.
+* UnPlug Detection.
+* Display of the current time
 
 ## Contents
 > * [Installation](#installation)
