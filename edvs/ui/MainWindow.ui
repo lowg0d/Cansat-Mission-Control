@@ -1404,7 +1404,7 @@ border-color: rgb(140, 184, 84);
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_1">
           <property name="styleSheet">
@@ -2082,7 +2082,9 @@ color: rgba(255, 255, 255, 0.5);
            <item>
             <widget class="QFrame" name="fr_flight">
              <property name="styleSheet">
-              <string notr="true">font: 250 9pt &quot;Arame&quot;;</string>
+              <string notr="true">QVBoxLayout{
+border: 0px solid;
+}</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -2120,7 +2122,8 @@ color: rgba(255, 255, 255, 0.5);
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font: 9pt &quot;Arame Mono&quot;;</string>
+                 <string notr="true">font: 9pt &quot;Arame Mono&quot;;
+</string>
                 </property>
                 <property name="title">
                  <string>FLY TELEMETRY</string>

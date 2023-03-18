@@ -64,7 +64,7 @@ class MonoAxisPlotWidget(pg.PlotItem):
         super().__init__(parent=parent, labels=labels, title=title,
                          enableMenu=enableMenu, **kargs)
 
-        x_vals = np.arange(0, 0, linspace_x)
+        x_vals = np.linspace(0.0, (linspace_x-1)/linspace_x, linspace_x)
         self.graph_plot = self.plot(
             x=x_vals, 
             pen=pg.mkPen(color, width=2.5), 
@@ -78,7 +78,7 @@ class MonoAxisPlotWidget(pg.PlotItem):
         
         self.graph_plot.setFillBrush(brush)
         self.graph_plot.setFillLevel(0)
-        self.graph_plot.setDownsampling(auto=True)
+        self.graph_plot.setDownsampling(auto=False)
         
         self.graph_data = np.zeros(linspace_x)
 
@@ -86,10 +86,18 @@ class MonoAxisPlotWidget(pg.PlotItem):
         self.curve.pxMode = False
         self.addItem(self.curve)
         
-        self.ptr1 = 0
-        self.window_size = 5  # Size of moving average window
-        self.weights = np.ones(self.window_size) / self.window_size  # Uniform weights for moving average
+        self.ptr1 = 0.0
+        self.window_size = 5 
+        self.weights = np.ones(self.window_size) / self.window_size
 
+        self.showGrid(x=True, y=True)
+        self.getAxis('bottom').setPen(pg.mkPen('#777'))
+        self.getAxis('left').setPen(pg.mkPen('#777'))
+        self.hideButtons()
+
+        self.getViewBox().disableAutoRange(axis="x")
+        self.getViewBox().setMouseEnabled(x=False, y=False)
+        
     def update(self, value, elapsed_time):
         value = float(value)
     
@@ -101,7 +109,7 @@ class MonoAxisPlotWidget(pg.PlotItem):
         x_vals = np.linspace(self.ptr1, self.ptr1 + elapsed_time, len(smoothed_data))
         self.ptr1 += float(elapsed_time)
         
-        self.setXRange(self.ptr1 - elapsed_time, self.ptr1, padding=0)        
+        self.setXRange(self.ptr1 - elapsed_time, self.ptr1, padding=0.01)        
         self.graph_plot.setData(x=x_vals, y=smoothed_data)
 
 # ================================================================= #
@@ -112,21 +120,25 @@ class GpsPlotWidget(pg.PlotItem):
                          enableMenu=enableMenu, **kargs)
 
         fill_color = QColor(color)
-        fill_color.setAlpha(50)
+        fill_color.setAlpha(80)
 
         self.graph_data = {'x': [], 'y': []}
         self.lastet_data = {'x': [], 'y': []}
 
         self.graph_plot = self.plot(
-            pen=pg.mkPen(fill_color, width=1.5),
+            pen=pg.mkPen(fill_color, width=2),
             antialias=True, 
             connect='finite')
 
         self.graph_plot.setDownsampling(auto=True)
         self.graph_plot.pxMode = False
 
-        self.scatter_plot = pg.ScatterPlotItem(symbol='x', size=8, brush=pg.mkBrush(color))
+        self.scatter_plot = pg.ScatterPlotItem(symbol='x', size=9, brush=pg.mkBrush(color))
         self.addItem(self.scatter_plot)
+
+        self.showGrid(x=True, y=True)
+        self.getAxis('bottom').setPen(pg.mkPen('#777'))
+        self.getAxis('left').setPen(pg.mkPen('#777'))
 
     def update(self, latitude, longitude):
         longitude = float(longitude)

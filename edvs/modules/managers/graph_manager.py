@@ -62,13 +62,30 @@ class GraphManager(QObject):
             print(f"[WARNING] UPDATING - {e}")
             
     # ================================================================= #
+    
+    def update_labels(self, sats):
+        if sats != self.last_sats:
+            self.last_sats = sats
+            satellites_color = "#8cb854"
+            if float(sats) < 2:
+                satellites_color = "#d79921"
+            if float(sats) < 1:
+                satellites_color = "#a8002a"
+            
+            self.parent.ui.lb_telemetry_info_1.setText(
+                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
+
+            self.parent.ui.lb_countdown.setText(
+                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
+            
+    # ================================================================= #
             
     def set_graphs(self):
         # create the graphics
         self.graph_temp = MonoAxisPlotWidget(
             title="TEMP(ºC)",
             linspace_x=50,
-            color="#e74c3c"
+            color="#e74c3c",
         )
 
         self.graph_bp = MonoAxisPlotWidget(
@@ -98,8 +115,8 @@ class GraphManager(QObject):
         self.graph_gps = GpsPlotWidget(
             title="LAT/LON"
         )
-
-        # add the graphics to the layouts
+        
+        # add the graphs to the layouts
         self.graphs_suprerior_layout.addItem(self.graph_temp)
         self.graphs_suprerior_layout.addItem(self.graph_bp)
         
@@ -138,7 +155,7 @@ class GraphManager(QObject):
         self.graphs_suprerior_layout = self.graphs_layout.addLayout(
             rowspan=1, 
             colspan=1,
-            border=(63, 63, 63, 50))
+            border=(0, 0, 0, 0))
         
         # next of the container layout row
         self.graphs_layout.nextRow()
@@ -147,11 +164,11 @@ class GraphManager(QObject):
         self.graphs_inferior_layout = self.graphs_layout.addLayout(
             rowspan=1,
             colspan=1,
-            border=(63, 63, 63, 50))
+            border=(0, 0, 0, 0))
 
         # set contents margins and spacing
         self.graphs_suprerior_layout.setContentsMargins(0, 0, 0, 0)
-        self.graphs_inferior_layout.setContentsMargins(0, 0, 0, 0)
+        self.graphs_inferior_layout.setContentsMargins(4, 4, 4, 4)
         self.graphs_layout.setContentsMargins(0, 0, 0, 0)
 
         self.graphs_suprerior_layout.setSpacing(3)
@@ -160,20 +177,3 @@ class GraphManager(QObject):
 
         # add the layout to the UI
         self.ui.telemetry_graphs.addWidget(self.layout)
-    
-    # ================================================================= #
-    
-    def update_labels(self, sats):
-        if sats != self.last_sats:
-            self.last_sats = sats
-            satellites_color = "#8cb854"
-            if float(sats) < 2:
-                satellites_color = "#d79921"
-            if float(sats) < 1:
-                satellites_color = "#a8002a"
-            
-            self.parent.ui.lb_telemetry_info_1.setText(
-                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
-
-            self.parent.ui.lb_countdown.setText(
-                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")

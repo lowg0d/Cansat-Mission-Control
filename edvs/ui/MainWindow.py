@@ -926,7 +926,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.fr_flight = QtWidgets.QFrame(self.page_2)
-        self.fr_flight.setStyleSheet("font: 250 9pt \"Arame\";")
+        self.fr_flight.setStyleSheet("QVBoxLayout{\n"
+"border: 0px solid;\n"
+"}")
         self.fr_flight.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.fr_flight.setFrameShadow(QtWidgets.QFrame.Raised)
         self.fr_flight.setObjectName("fr_flight")
@@ -942,7 +944,8 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setItalic(False)
         self.TelemetryGroup.setFont(font)
-        self.TelemetryGroup.setStyleSheet("font: 9pt \"Arame Mono\";")
+        self.TelemetryGroup.setStyleSheet("font: 9pt \"Arame Mono\";\n"
+"")
         self.TelemetryGroup.setAlignment(QtCore.Qt.AlignCenter)
         self.TelemetryGroup.setFlat(False)
         self.TelemetryGroup.setCheckable(False)
@@ -980,7 +983,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1018,4 +1021,3 @@ class Ui_MainWindow(object):
         self.btn_set_full_screen.setText(_translate("MainWindow", "FULL SCREEN"))
         self.TelemetryGroup.setTitle(_translate("MainWindow", "FLY TELEMETRY"))
 import edvs.ui.resources.src_rc
-
