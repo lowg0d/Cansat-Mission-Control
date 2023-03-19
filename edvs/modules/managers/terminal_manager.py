@@ -93,9 +93,12 @@ class TerminalManager(QObject):
 
         elif data.startswith(f"{self.command_prefix}dummy.time"):
             if self.parent.serial.dummy_enabled == True:
-                time = data.replace(f"{self.command_prefix}dummy.time", "")
-                converted = float(time)
-                self.parent.serial.set_dummy_time(converted)
+                try:
+                    time = data.replace(f"{self.command_prefix}dummy.time", "")
+                    converted = float(time)
+                    self.parent.serial.set_dummy_time(converted)
+                except ValueError:
+                    self.write(f"<b style='color:#a8002a;'>(!) INVALID or NONE arguments given")
 
             else:
                 self.write(f"<b style='color:#a8002a;'>(!) Dummy is Disabled </b>")
