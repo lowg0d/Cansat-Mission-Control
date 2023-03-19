@@ -40,19 +40,9 @@ class GraphManager(QObject):
         self.last_update_time = QDateTime.currentDateTime()
         self.total_time = 0
 
-        self.max_temp = 50
-        self.min_temp = -50
-        
-        self.max_bp = 1500
-        self.max_bp = 0
-        
-        self.max_speed = 150
-        self.min_speed = 0
-
-        self.max_hum = 100
-        self.min_hum = 100
-        
-        self.min_hum = 100
+        self.filter_ranges = dict(self.config.get("graphs.filter_ranges"))
+        self.filter_enabled = self.config.get("graphs.filter_enabled")
+        self.previous_values = {}
         
     # ================================================================= #
 
@@ -75,11 +65,30 @@ class GraphManager(QObject):
             self.graph_speed.update(value_chain[6],time_mission)
             
             self.update_labels(self.total_time)
-
             
         except Exception as e:
             print(f"[WARNING] UPDATING - {e}")
-            
+   
+    def data_filter(self, value_chain):
+        if self.filter_enabled == True:
+            filtered_values = []
+            for i, value in enumerate(value_chain):
+                if str(i) in self.filter_ranges:
+                    min_value, max_value = self.filter_ranges[str(i)]
+                    if value < min_value:
+                        filtered_value = min_value
+                    elif value > max_value:
+                        filtered_value = max_value
+                    else:
+                        filtered_value = value
+                    filtered_values.append(filtered_value)
+                    self.previous_values[i] = filtered_value
+                else:
+                    filtered_values.append(value)
+            return filtered_values
+        else:
+            return value_chain
+    
     # ================================================================= #
     
     def update_labels(self, time):
@@ -200,6 +209,3 @@ class GraphManager(QObject):
         # add the layout to the UI
         self.ui.telemetry_graphs.addWidget(self.layout)
 
-    def data_filter(self,value_chain):
-        return value_chain
-        
