@@ -11,6 +11,7 @@
 ## Features
 > * [Feature Explanation Video](https://www.youtube.com/watch?v=cgqOD5_pZTY)
  Serial Communication, can be used as a serial monitor for sending and receive data.
+>* "Filtering" can set a maximum and minimum threshold for the data, if the data exceeds the maximum or minimum, the maximum or minimum value will be displayed depending on the one that has been exceeded.
 >* Full Customization of the graphs, add, change, delete, The Ui file is on the code so you can edit it, also can add more "blocks" on the topbar for displaying data that does not need a graph. 
 >* Simulation mode for use without hardware, you can change the time for each update.
 >* UnPlug Detection, if you unplug de device without desconecting your computer is going to beep :)
