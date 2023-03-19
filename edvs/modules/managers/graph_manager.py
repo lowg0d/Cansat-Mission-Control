@@ -38,8 +38,8 @@ class GraphManager(QObject):
         self.set_graphs()
 
         self.last_update_time = QDateTime.currentDateTime()
-        self.total_time = 0
-
+        self.total_time = 0.0
+        
         self.filter_ranges = dict(self.config.get("graphs.filter_ranges"))
         self.filter_enabled = self.config.get("graphs.filter_enabled")
         self.previous_values = {}
