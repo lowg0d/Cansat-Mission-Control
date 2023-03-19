@@ -62,7 +62,7 @@ python .\launcher.py
 * **Dummy:**
 >* "*/dummy.on*" for starting the simulation
 >* "*/dummy.off*" you can guess
->* "*/dummy.time* <time>" change the update time for the data to appear, time need to be a float and in seconds, 0.5 for half a second 1.0 for a second.
+>* "*/dummy.time* (time)" change the update time for the data to appear, time need to be a float and in seconds, 0.5 for half a second 1.0 for a second.
 
 * **Unplug Mode:**
 > Unplug it !!
