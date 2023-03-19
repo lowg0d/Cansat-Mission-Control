@@ -279,54 +279,6 @@ color: rgba(255, 255, 255, 0.2);
         </widget>
        </item>
        <item>
-        <widget class="Line" name="line_hide_2">
-         <property name="minimumSize">
-          <size>
-           <width>1</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>1</width>
-           <height>45</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(0, 0, 0, 0.5);</string>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_telemetry_info_1">
-         <property name="minimumSize">
-          <size>
-           <width>75</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>75</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgba(255, 255, 255, 0.2);
-background-color: rgb(39, 39, 39);</string>
-         </property>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="Line" name="line_hide_3">
          <property name="minimumSize">
           <size>

@@ -60,8 +60,8 @@ class SerialManager(QObject):
         self.message_unplugged = self.config.get("serial.un_plugged",2)
         self.message_replugged = self.config.get("serial.re_plugged",2)
     
-        self.last_latitude = 42.84283
-        self.last_longitude = -2.66806
+        self.last_latitude = 42.842835
+        self.last_longitude = -2.668065
         self.last_temperature = 15
         self.last_altitude = 0.0
     
@@ -133,8 +133,8 @@ class SerialManager(QObject):
         pressure = np.random.uniform(800, 1200)
         random_value = np.random.randint(0, 6)
 
-        latitude = self.last_latitude + np.random.uniform(0.01, 0.0001)
-        longitude = self.last_longitude + np.random.uniform(0.01, 0.0001)
+        latitude = self.last_latitude + np.random.uniform(0.0001, 0.00001)
+        longitude = self.last_longitude + np.random.uniform(0.0001, 0.00001)
         
         speed = np.random.uniform(0, 200)
         

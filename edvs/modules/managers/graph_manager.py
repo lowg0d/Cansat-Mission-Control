@@ -8,6 +8,9 @@
 © Elburgo Data Visualization Software.
 -- @Version: 1.0-BETA
 -- @data: 3/13/2023
+
+este/o 3/0
+n/s 44 40
 """
 
 import pyqtgraph as pg
@@ -37,12 +40,26 @@ class GraphManager(QObject):
         self.last_update_time = QDateTime.currentDateTime()
         self.total_time = 0
 
+        self.max_temp = 50
+        self.min_temp = -50
+        
+        self.max_bp = 1500
+        self.max_bp = 0
+        
+        self.max_speed = 150
+        self.min_speed = 0
+
+        self.max_hum = 100
+        self.min_hum = 100
+        
+        self.min_hum = 100
+        
     # ================================================================= #
 
     def update(self, value):
         try:
             value_chain = []
-            value_chain = value
+            value_chain = self.data_filter(value)
 
             now = QDateTime.currentDateTime()
             time_mission = self.last_update_time.msecsTo(now) / 1000
@@ -54,10 +71,10 @@ class GraphManager(QObject):
             self.graph_bp.update(value_chain[2],time_mission)
             
             self.graph_gps.update(value_chain[4],value_chain[5])
-            self.graph_altitude.update(value_chain[6],time_mission)
-            self.graph_speed.update(value_chain[7],time_mission)
+            self.graph_altitude.update(value_chain[3],time_mission)
+            self.graph_speed.update(value_chain[6],time_mission)
             
-            self.update_labels(value_chain[3],self.total_time)
+            self.update_labels(self.total_time)
 
             
         except Exception as e:
@@ -65,7 +82,8 @@ class GraphManager(QObject):
             
     # ================================================================= #
     
-    def update_labels(self, sats, time):
+    def update_labels(self, time):
+        """
         if sats != self.last_sats:
             self.last_sats = sats
             satellites_color = "#8cb854"
@@ -76,6 +94,7 @@ class GraphManager(QObject):
             
             self.parent.ui.lb_telemetry_info_1.setText(
                 f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
+        """
 
         self.parent.ui.lb_countdown.setText(
                         f"<b style='color:rgba(235,235,255,0.4);'>{time:.2f}</b>S MIT")
@@ -180,3 +199,7 @@ class GraphManager(QObject):
 
         # add the layout to the UI
         self.ui.telemetry_graphs.addWidget(self.layout)
+
+    def data_filter(self,value_chain):
+        return value_chain
+        
