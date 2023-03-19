@@ -135,8 +135,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lb_countdown.sizePolicy().hasHeightForWidth())
         self.lb_countdown.setSizePolicy(sizePolicy)
-        self.lb_countdown.setMinimumSize(QtCore.QSize(75, 35))
-        self.lb_countdown.setMaximumSize(QtCore.QSize(75, 35))
+        self.lb_countdown.setMinimumSize(QtCore.QSize(95, 35))
+        self.lb_countdown.setMaximumSize(QtCore.QSize(95, 35))
         self.lb_countdown.setStyleSheet("QLabel{\n"
 "color: rgba(255, 255, 255, 0.2);\n"
 "background-color: rgb(39, 39, 39);\n"

@@ -49,11 +49,20 @@ class WindowManager(QObject):
     def show_full_screen(self):
         
         if self.full_screen == False:
+            self.ui.btn_close.hide()
+            self.ui.btn_minimize.hide()
+            self.ui.btn_normalize.hide()
+            self.ui.btn_maximize.hide()
+            
             self.full_screen = True
             self.ui.btn_set_full_screen.setChecked(True)
             self.parent.showFullScreen()
         
         else:
+            self.ui.btn_close.show()
+            self.ui.btn_minimize.show()
+            self.ui.btn_maximize.show()
+            
             self.parent.showNormal()
             self.full_screen = False
             self.ui.btn_set_full_screen.setChecked(False)
@@ -74,18 +83,22 @@ class WindowManager(QObject):
 
     # == window movement == #
     def move_window(self, event):
-        if self.parent.isMaximized() == False:
-            if event.buttons() == Qt.LeftButton:
-                delta = QPoint(event.globalPos() - self.clickPostion)
-                self.parent.move(self.parent.x() + delta.x(), self.parent.y() + delta.y())
-                self.clickPostion = event.globalPos()
-                event.accept()
+        if self.full_screen == True:
+            pass
+        
+        else:
+            if self.parent.isMaximized() == False:
+                if event.buttons() == Qt.LeftButton:
+                    delta = QPoint(event.globalPos() - self.clickPostion)
+                    self.parent.move(self.parent.x() + delta.x(), self.parent.y() + delta.y())
+                    self.clickPostion = event.globalPos()
+                    event.accept()
 
-        if event.globalPos().y() < 15:
-            self.maximize_app()
+            if event.globalPos().y() < 15:
+                self.maximize_app()
 
-        else:     
-            self.normalize_app()
+            else:     
+                self.normalize_app()
         
     # == double click on titlebar == #
     def topbar_double_click(self, e):
@@ -121,36 +134,3 @@ class WindowManager(QObject):
 
         else:
             self.menu_animation_off.start()
-
-    # ================================================================= #
-    """
-    # == btn handler == #
-    def btn_clicked(self, value):
-        btn = self.sender()
-        btnName = btn.objectName()
-
-        # SHOW HOME PAGE
-        if btnName == "btn_start_max":
-            if self.parent.ui.btn_start_max.isChecked():
-                self.config.set_ini("options", "start_maximized", "True")
-            else:
-                self.config.set_ini("options", "start_maximized", "False")
-
-        if btnName == "btn_auto_conn":
-            if self.parent.ui.btn_auto_conn.isChecked():
-                self.config.set_ini(
-                    "options", "attempt_connection_on_start", "True")
-            else:
-                self.config.set_ini(
-                    "options", "attempt_connection_on_start", "False")
-
-        if btnName == "btn_auto_update":
-            if self.parent.ui.btn_auto_update.isChecked():
-                self.config.set_ini("options", "update_ports_on_start", "True")
-            else:
-                self.config.set_ini(
-                    "options", "update_ports_on_start", "False")
-
-        if btnName == "config_default_bauds":
-            self.config.set_ini("conn", "default_bauds", value)
-    """
