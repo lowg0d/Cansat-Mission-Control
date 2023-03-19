@@ -1,6 +1,6 @@
 ![](https://i.imgur.com/rLJG0se.png)
 
-# EDVS - Cansat Mission Control Gui - Python 3.11.1
+# EDVS - Cansat Mission Control Gui - Python 3.11.2
 
 ## What's this !??
 > * SRC of a "**Mission Control**" or "**Ground Station**" **Full Customizable** GUI built in *Python 3.11.1* with PyQt5 & pyqtgraph. With features like: **simulation mode** with no hardware needed, also can be used as a cooler serial monitor & more things...
