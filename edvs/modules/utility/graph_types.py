@@ -92,7 +92,7 @@ class GpsPlotWidget(pg.PlotItem):
         self.graph_plot.setDownsampling(auto=True)
         self.graph_plot.pxMode = False
 
-        self.scatter_plot = pg.ScatterPlotItem(symbol='x', size=9, brush=pg.mkBrush(color))
+        self.scatter_plot = pg.ScatterPlotItem(symbol='x', size=5, brush=pg.mkBrush(color))
         self.addItem(self.scatter_plot)
 
         self.showGrid(x=True, y=True)
@@ -117,6 +117,6 @@ class GpsPlotWidget(pg.PlotItem):
         self.graph_plot.setData(self.graph_data['x'], self.graph_data['y'])
         self.scatter_plot.setData(self.lastet_data['x'], self.lastet_data['y'], symbol='x', connect='finite')
         
-        x_range = (min(self.graph_data['x']) - 0.01, max(self.graph_data['x']) + 0.01)
-        y_range = (min(self.graph_data['y']) - 0.01, max(self.graph_data['y']) + 0.01)
+        x_range = (min(self.graph_data['x']) - 0.001, max(self.graph_data['x']) + 0.001)
+        y_range = (min(self.graph_data['y']) - 0.001, max(self.graph_data['y']) + 0.001)
         self.setRange(xRange=x_range, yRange=y_range)

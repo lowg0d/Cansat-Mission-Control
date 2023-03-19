@@ -17,16 +17,16 @@
         "dummy": {
             "default_update_time": 1.0
         },
+        "filter_enabled": true,
         "filter_ranges": {
           "0": [-10,50],
           "1": [0, 100],
           "2": [500, 1500],
           "3": [0, 3000],
-          "4": [47,52],
+          "4": [40,44],
           "5": [-3, 3],
           "6": [0,400]
         },
-        "filter_enabled": true,
         "settings": {
             "antialias": true,
             "opengl": false,
@@ -50,7 +50,7 @@
         }
     },
     "version": {
-        "version": "1.0",
+        "version": "0.1.0",
         "build": "0.0.3.3",
         "status": "BETA"
     }
