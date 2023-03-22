@@ -66,7 +66,7 @@ class MainWindow(QMainWindow):
         
         # == send bootup message
         self.terminal.boot_up_message()
-        self.update_status_bar("Sucesfully Started")
+        self.update_status_bar("# //Sucesfully Started")
         
         # show
         self.show()
@@ -80,7 +80,6 @@ class MainWindow(QMainWindow):
         window_icon = self.config.get("application.icon_path")
         
         self.app_status = self.config.get("version.status")
-        self.application_build = self.config.get("version.build")
         self.app_version = self.config.get("version.version")
         
         bauds_dic = self.config.get("connection.bauds_dic")
@@ -110,7 +109,7 @@ class MainWindow(QMainWindow):
         self.ui.cb_bauds.setCurrentText(bauds_default)
         
         self.window_version = f"{self.app_status}-{self.app_version}"
-        self.window_id = f"{window_name} | v: {self.app_status}-{self.app_version} | b: {self.application_build}"
+        self.window_id = f"{window_name} | v: {self.app_status}-{self.app_version}"
         
     # == Set up => BUTTONS == #
     def setup_buttons(self):

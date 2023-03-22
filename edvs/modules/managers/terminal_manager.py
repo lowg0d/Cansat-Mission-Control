@@ -106,12 +106,9 @@ class TerminalManager(QObject):
 
     def boot_up_message(self):
         message = f"""888888 8888b.  Yb    dP .dP"Y8  ▸  Elburgo Data Visualization Software
-88__    8I  Yb  Yb  dP  `Ybo."  ▸  VERSION: {self.parent.window_version} | BUILD: {self.parent.application_build}
+88__    8I  Yb  Yb  dP  `Ybo."  ▸  VERSION: {self.parent.window_version}
 88""    8I  dY   YbdP   o.`Y8b  ▸  RUNNING: OS:{platform.system()}-{platform.release()} | Python:{platform.python_version()}
 888888 8888Y"     YP    8bodP'  ▸  AUTHOR: Martin Ortiz
 """
         self.ui.terminal.append(message)  
-
-    def outdated_version_message(self, version):
-        message = f"""<b style='color:#d79921;'>(△)</b> <ins style='color:#b57614';> New Version <b>({version})</b> Avaliable</ins>"""
-        self.write(message)  
+        self.write("<ins style='color:#8cb854;'><b>(✓)</b> Sucesfully Started</ins>")
