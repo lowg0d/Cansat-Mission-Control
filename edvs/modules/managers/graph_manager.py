@@ -54,10 +54,10 @@ class GraphManager(QObject):
             else:
                 value_chain = value
 
+            self.update_labels(self.total_time)
+
             now = QDateTime.currentDateTime()
             time_mission = self.last_update_time.msecsTo(now) / 1000
-            self.last_update_time = now
-            self.total_time += time_mission 
 
             self.graph_temp.update(value_chain[0],time_mission)
             self.graph_humidity.update(value_chain[1],time_mission)
@@ -67,7 +67,8 @@ class GraphManager(QObject):
             self.graph_altitude.update(value_chain[3],time_mission)
             self.graph_speed.update(value_chain[6],time_mission)
             
-            self.update_labels(self.total_time)
+            self.last_update_time = now
+            self.total_time += time_mission
             
         except Exception as e:
             print(f"[WARNING] UPDATING - {e}")
