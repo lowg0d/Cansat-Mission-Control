@@ -36,14 +36,11 @@ class SerialManager(QObject):
         self.terminal = parent.terminal
         self.config = parent.config
         
-        self.start_error = False
-        
         # serial & connection
         self.is_connected = False
         self.is_unplugged = False
         self.ser = serial.Serial()
         self.ser.timeout = self.config.get("connection.time_out")
-        
         
         # logs
         self.logs_path = self.config.get("application.settings.logs_folder")
@@ -111,10 +108,9 @@ class SerialManager(QObject):
     # == Read Serial == #
     def read_serial(self):
         data = self.ser.readline().decode("utf-8")
+                
         if len(data) > 1:
             data_dic = str(data).strip().split(";")
-            if '#' in str(data):
-                self.start_error = True
                
             self.update_graphs.emit(data_dic)
             self.data_available.emit(str(data_dic))

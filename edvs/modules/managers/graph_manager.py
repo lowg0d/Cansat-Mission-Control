@@ -49,7 +49,10 @@ class GraphManager(QObject):
     def update(self, value):
         try:
             value_chain = []
-            value_chain = self.data_filter(value)
+            if self.filter_enabled == True:
+                value_chain = self.data_filter(value)
+            else:
+                value_chain = value
 
             now = QDateTime.currentDateTime()
             time_mission = self.last_update_time.msecsTo(now) / 1000
@@ -70,24 +73,23 @@ class GraphManager(QObject):
             print(f"[WARNING] UPDATING - {e}")
    
     def data_filter(self, value_chain):
-        if self.filter_enabled == True:
-            filtered_values = []
-            for i, value in enumerate(value_chain):
-                if str(i) in self.filter_ranges:
-                    min_value, max_value = self.filter_ranges[str(i)]
-                    if value < min_value:
-                        filtered_value = min_value
-                    elif value > max_value:
-                        filtered_value = max_value
-                    else:
-                        filtered_value = value
-                    filtered_values.append(filtered_value)
-                    self.previous_values[i] = filtered_value
+        filtered_values = []
+        for i, value in enumerate(value_chain):
+            if str(i) in self.filter_ranges:
+                min_value, max_value = self.filter_ranges[str(i)]
+                
+                if value < min_value:
+                    filtered_value = min_value
+                elif value > max_value:
+                    filtered_value = max_value
                 else:
-                    filtered_values.append(value)
-            return filtered_values
-        else:
-            return value_chain
+                    filtered_value = value
+                    
+                filtered_values.append(filtered_value)
+                self.previous_values[i] = filtered_value
+            else:
+                filtered_values.append(value)
+        return filtered_values
     
     # ================================================================= #
     

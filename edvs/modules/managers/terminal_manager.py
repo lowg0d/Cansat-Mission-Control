@@ -39,9 +39,6 @@ class TerminalManager(QObject):
                     time_stamp += " (R)"
 
                 prefix = f"[{time_stamp} <strong style='color:#786fa6';>{self.parent.serial.ser.name}</strong>]:"
-                
-                if self.parent.serial.start_error == True:
-                    prefix = prefix + "ERROR"
 
             elif self.parent.serial.dummy_enabled == True:
                 prefix = f"[{time_stamp} <strong style='color:#786fa6';>Dummy</strong>]:"
@@ -71,10 +68,10 @@ class TerminalManager(QObject):
         if data == f"{self.command_prefix}help":
             
             self.write("<b style='color:#8cb854;'>(OK)</b> Available Commands:")
-            self.ui.terminal.append(f"""- <b>/clear:</b> clear the terminal""")
-            self.ui.terminal.append(f"""- <b>/reload:</b> reload the window""")
-            self.ui.terminal.append(f"""- <b>/dummy:</b> (.on) (.off) (.time [time])""")
-            self.ui.terminal.append(f"""- <b>/saves:</b> open the saves folder""")
+            self.ui.terminal.append(f"""- <b>{self.command_prefix}clear:</b> clear the terminal""")
+            self.ui.terminal.append(f"""- <b>{self.command_prefix}reload:</b> reload the window""")
+            self.ui.terminal.append(f"""- <b>{self.command_prefix}dummy:</b> (.on) (.off) (.time [time])""")
+            self.ui.terminal.append(f"""- <b>{self.command_prefix}saves:</b> open the saves folder""")
             
         elif data == f"{self.command_prefix}clear":
             self.clear()
