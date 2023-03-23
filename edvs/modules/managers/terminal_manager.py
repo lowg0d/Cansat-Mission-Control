@@ -30,9 +30,7 @@ class TerminalManager(QObject):
 
     # == write in the terminal == #
     def write(self, data, override_time_stamp=False):
-        time_str = QTime.currentTime().toString("hh:mm:ss.zzz")
-        time_stamp = time_str.ljust(10)
-
+        time_stamp = QTime.currentTime().toString("hh:mm:ss.zzz")
         if not override_time_stamp:
             if self.parent.serial.is_connected:
                 if self.parent.serial.record_enabled == True:
@@ -50,7 +48,6 @@ class TerminalManager(QObject):
             prefix = f"[<strong>EDVS</strong>]:"
 
         self.ui.terminal.append(f"\t<td>{prefix} {data}</td>")
-
 
     def insert(self, data):
         self.ui.terminal.insertPlainText(data)

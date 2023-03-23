@@ -301,6 +301,66 @@ color: rgba(255, 255, 255, 0.2);
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="lb_ping">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>95</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+color: rgba(255, 255, 255, 0.2);
+background-color: rgb(39, 39, 39);
+}
+
+QLabel:hover{
+color: rgba(255, 255, 255, 0.2);
+}</string>
+         </property>
+         <property name="text">
+          <string>N/A</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_hide_5">
+         <property name="minimumSize">
+          <size>
+           <width>1</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1</width>
+           <height>45</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0, 0, 0, 0.5);</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="top_bar_spacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -1356,7 +1416,7 @@ border-color: rgb(140, 184, 84);
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_1">
           <property name="styleSheet">
@@ -2010,7 +2070,7 @@ border-color: rgb(220,220,220);</string>
 	border: 0px solid;
 }
 QGroupBox{
-border: 1px solid rgba(255, 255, 255, 0.2);
+border: 1px solid rgba(255, 255, 255, 0.0);
 color: rgba(255, 255, 255, 0.5);
 }
 </string>

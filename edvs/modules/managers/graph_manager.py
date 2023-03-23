@@ -54,10 +54,11 @@ class GraphManager(QObject):
             else:
                 value_chain = value
 
-            self.update_labels(self.total_time)
-
             now = QDateTime.currentDateTime()
-            time_mission = self.last_update_time.msecsTo(now) / 1000
+            ping = self.last_update_time.msecsTo(now)
+            time_mission = ping / 1000
+            
+            self.update_labels(self.total_time, ping)
 
             self.graph_temp.update(value_chain[0],time_mission)
             self.graph_humidity.update(value_chain[1],time_mission)
@@ -69,13 +70,14 @@ class GraphManager(QObject):
             
             self.last_update_time = now
             self.total_time += time_mission
-            
+    
         except Exception as e:
             print(f"[WARNING] UPDATING - {e}")
    
     def data_filter(self, value_chain):
         filtered_values = []
         for i, value in enumerate(value_chain):
+            value = float(value)
             if str(i) in self.filter_ranges:
                 min_value, max_value = self.filter_ranges[str(i)]
                 
@@ -94,22 +96,19 @@ class GraphManager(QObject):
     
     # ================================================================= #
     
-    def update_labels(self, time):
-        """
-        if sats != self.last_sats:
-            self.last_sats = sats
-            satellites_color = "#8cb854"
-            if float(sats) < 2:
-                satellites_color = "#d79921"
-            if float(sats) < 1:
-                satellites_color = "#a8002a"
+    def update_labels(self, time, ping):
+        
+        ping_color = "green"
+        if ping > 1100:
+            ping_color = "orange"
+        if ping > 5100:
+            ping_color = "red"
             
-            self.parent.ui.lb_telemetry_info_1.setText(
-                f"<b style='color:{satellites_color};'>{int(sats)} SATS</b>")
-        """
-
         self.parent.ui.lb_countdown.setText(
                         f"<b style='color:rgba(235,235,255,0.4);'>{time:.2f}</b>S MIT")
+        
+        self.parent.ui.lb_ping.setText(
+                    f"<b style='color:{ping_color};'>{ping}</b>ms")
             
     # ================================================================= #
             
@@ -130,24 +129,24 @@ class GraphManager(QObject):
         self.graph_humidity = MonoAxisPlotWidget(
             title="HUMIDITY(%)",
             color="#16a085",
-            linspace_x=25
+            linspace_x=50
         )
 
         self.graph_altitude = MonoAxisPlotWidget(
             title="ALT(M)",
             color="#9b59b6",
-            linspace_x=25
+            linspace_x=50
         )
         
         self.graph_speed = MonoAxisPlotWidget(
             title="SPEED(M/S)",
             color="#27ae60",
-            linspace_x=25
+            linspace_x=50
         )
         
         self.graph_gps = GpsPlotWidget(
             title="LAT/LON",
-            color="#f1c40f"
+            color="#B53471"
         )
         
         # add the graphs to the layouts

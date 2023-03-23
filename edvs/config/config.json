@@ -1,7 +1,9 @@
 {
     "connection": {
+        "filter_character": "Z",
+        "alarm": true,
         "bauds_default": "9600",
-        "time_out": 1,
+        "time_out": 2,
         "bauds_dic": {
             "1200": 1200,
             "2400": 2400,

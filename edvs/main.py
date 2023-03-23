@@ -66,7 +66,7 @@ class MainWindow(QMainWindow):
         
         # == send bootup message
         self.terminal.boot_up_message()
-        self.update_status_bar("# //Sucesfully Started")
+        self.update_status_bar("// #Sucesfully Started")
         
         # show
         self.show()
@@ -258,3 +258,6 @@ class MainWindow(QMainWindow):
         if maximized_on_start == True:
             self.ui.btn_start_max.setChecked(True)
             self.window_manager.maximize_app()
+            
+    def closeEvent(self, event):
+        self.serial.all_data.close()

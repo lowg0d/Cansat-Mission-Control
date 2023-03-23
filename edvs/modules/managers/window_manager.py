@@ -31,7 +31,7 @@ class WindowManager(QObject):
         # on
         self.menu_animation_on = QPropertyAnimation(
             self.ui.fr_menu, b'minimumWidth')
-        self.menu_animation_on.setDuration(60)
+        self.menu_animation_on.setDuration(80)
         self.menu_animation_on.setStartValue(0)
         self.menu_animation_on.setEndValue(200)
         self.menu_animation_on.setEasingCurve(QEasingCurve.InOutQuart)
@@ -39,7 +39,7 @@ class WindowManager(QObject):
         # off
         self.menu_animation_off = QPropertyAnimation(
             self.ui.fr_menu, b'minimumWidth')
-        self.menu_animation_off.setDuration(60)
+        self.menu_animation_off.setDuration(80)
         self.menu_animation_off.setStartValue(200)
         self.menu_animation_off.setEndValue(0)
         self.menu_animation_off.setEasingCurve(QEasingCurve.InOutQuart)

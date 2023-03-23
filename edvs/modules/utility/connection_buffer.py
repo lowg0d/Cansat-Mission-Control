@@ -145,7 +145,7 @@ class ConnectionBuffer(QObject):
                     self.ui.btn_connect_serial.setText("connected")
                     
                     # update the status bar
-                    self.parent.update_status_bar(f"// CONNECTED -> {self.serial.ser.portstr} <- {self.serial.ser.baudrate}")
+                    self.parent.update_status_bar(f"// #CONNECTED -> {self.serial.ser.portstr} <- {self.serial.ser.baudrate}")
 
     # == Disconnect == #
     def disconnect(self):
@@ -180,7 +180,7 @@ class ConnectionBuffer(QObject):
         self.terminal.write(self.message_error_connecting)
         
         # update the status bar
-        self.parent.update_status_bar(f"// ERROR_CONNECTING")
+        self.parent.update_status_bar(f"// #ERROR_CONNECTING")
         
     # == Toggle recording == #
     def toggle_recording(self):

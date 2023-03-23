@@ -156,6 +156,33 @@ class Ui_MainWindow(object):
         self.line_hide_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_hide_3.setObjectName("line_hide_3")
         self.horizontalLayout.addWidget(self.line_hide_3)
+        self.lb_ping = QtWidgets.QLabel(self.fr_top_bar)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lb_ping.sizePolicy().hasHeightForWidth())
+        self.lb_ping.setSizePolicy(sizePolicy)
+        self.lb_ping.setMinimumSize(QtCore.QSize(80, 35))
+        self.lb_ping.setMaximumSize(QtCore.QSize(95, 35))
+        self.lb_ping.setStyleSheet("QLabel{\n"
+"color: rgba(255, 255, 255, 0.2);\n"
+"background-color: rgb(39, 39, 39);\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"color: rgba(255, 255, 255, 0.2);\n"
+"}")
+        self.lb_ping.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_ping.setObjectName("lb_ping")
+        self.horizontalLayout.addWidget(self.lb_ping)
+        self.line_hide_5 = QtWidgets.QFrame(self.fr_top_bar)
+        self.line_hide_5.setMinimumSize(QtCore.QSize(1, 0))
+        self.line_hide_5.setMaximumSize(QtCore.QSize(1, 45))
+        self.line_hide_5.setStyleSheet("background-color: rgba(0, 0, 0, 0.5);")
+        self.line_hide_5.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_hide_5.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_hide_5.setObjectName("line_hide_5")
+        self.horizontalLayout.addWidget(self.line_hide_5)
         spacerItem = QtWidgets.QSpacerItem(797, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.btn_minimize = QtWidgets.QPushButton(self.fr_top_bar)
@@ -900,7 +927,7 @@ class Ui_MainWindow(object):
 "    border: 0px solid;\n"
 "}\n"
 "QGroupBox{\n"
-"border: 1px solid rgba(255, 255, 255, 0.2);\n"
+"border: 1px solid rgba(255, 255, 255, 0.0);\n"
 "color: rgba(255, 255, 255, 0.5);\n"
 "}\n"
 "")
@@ -967,7 +994,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -975,6 +1002,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.time_label.setText(_translate("MainWindow", "N/A"))
         self.lb_countdown.setText(_translate("MainWindow", "N/A"))
+        self.lb_ping.setText(_translate("MainWindow", "N/A"))
         self.lb_Ports.setText(_translate("MainWindow", "PORT:"))
         self.lb_Baudrate.setText(_translate("MainWindow", "BAUDRATE:"))
         self.btn_connect_serial.setText(_translate("MainWindow", "disconnected"))

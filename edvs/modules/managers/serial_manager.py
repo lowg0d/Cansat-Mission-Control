@@ -10,6 +10,7 @@
 -- @data: 3/13/2023
 """
 
+import os
 import csv
 import time
 import winsound
@@ -17,6 +18,8 @@ import numpy as np
 
 import serial
 import serial.tools.list_ports
+
+from datetime import datetime
 
 from PyQt5.QtCore import (QObject,
                             pyqtSignal,
@@ -39,6 +42,7 @@ class SerialManager(QObject):
         # serial & connection
         self.is_connected = False
         self.is_unplugged = False
+        self.alarm = self.config.get("connection.alarm")
         self.ser = serial.Serial()
         self.ser.timeout = self.config.get("connection.time_out")
         
@@ -52,6 +56,7 @@ class SerialManager(QObject):
         self.dummy_update_time = self.config.get("graphs.dummy.default_update_time")
         
         self.baudratesDIC = self.config.get("connection.bauds_dic")
+        self.filter_character = self.config.get("connection.filter_character")
         self.portList = []
         
         self.message_unplugged = self.config.get("serial.un_plugged",2)
@@ -61,6 +66,12 @@ class SerialManager(QObject):
         self.last_longitude = -2.668065
         self.last_temperature = 15
         self.last_altitude = 0.0
+    
+        if not os.path.exists(self.logs_path):
+            os.mkdir(self.logs_path)
+    
+        if not os.path.exists(f"{self.logs_path}/BlackBox"):
+            os.mkdir(f"{self.logs_path}/BlackBox")
     
     # ================================================================= #
     
@@ -107,19 +118,30 @@ class SerialManager(QObject):
 
     # == Read Serial == #
     def read_serial(self):
-        data = self.ser.readline().decode("utf-8")
-                
-        if len(data) > 1:
-            data_dic = str(data).strip().split(";")
-               
-            self.update_graphs.emit(data_dic)
-            self.data_available.emit(str(data_dic))
+        try:
+            data = self.ser.readline().decode("utf-8")
             
-            if self.record_enabled == True:
-                values = data.split(";")
-                writer = csv.writer(self.logs_file, delimiter=",")
-                writer.writerow(values)
-
+            self.all_data.write(f"[{datetime.now()}]: {data}")
+            
+            if str(data).startswith(self.filter_character):
+                data = data.replace(f"{self.filter_character}", "")
+                
+                if len(data) > 1:
+                    data_dic = str(data).strip().split(";")
+                    
+                    now = datetime.now()
+                    self.update_graphs.emit(data_dic)
+                    self.data_available.emit(str(data_dic))
+                    
+                    if self.record_enabled == True:
+                        data += f";{now}"
+                        values = data.split(";")
+                        writer = csv.writer(self.logs_file, delimiter=",")
+                        writer.writerow(values)
+        except Exception as e:
+            self.all_data.write("[EXCEPTION]: " + str(e))
+            print("[EXCEPTION]: " + str(e))
+            
     # ================================================================= #
     
     # == Dummy Serial == #
@@ -138,7 +160,14 @@ class SerialManager(QObject):
         temperature = self.last_temperature - np.random.uniform(0, 2)
         
         # Combine the data into a numpy array
-        data_dic = np.concatenate(([temperature], [humidity], [pressure], [random_value], [latitude], [longitude], [speed], [altitude]))
+        data_dic = np.concatenate(([round(temperature, 2)],
+                                   [round(humidity, 2)], 
+                                   [round(pressure, 2)], 
+                                   [round(random_value, 2)],
+                                   [latitude],
+                                   [longitude],
+                                   [round(speed, 2)],
+                                   [round(altitude, 2)]))
 
         # Update the last data value
         self.last_latitude = latitude
@@ -172,7 +201,7 @@ class SerialManager(QObject):
     def set_dummy_time(self, time):
         self.terminal.write(f"<b style='color:#8cb854;'>(OK)</b> Dummy Time updated: <b>{time}</b>")
         self.dummy_update_time = time
-        self.parent.update_status_bar(f"// DUMMY -> ON <- {self.dummy_update_time}")
+        self.parent.update_status_bar(f"// #DUMMY -> ON <- {self.dummy_update_time}")
        
     # ================================================================= #
     # == Serial/Dummy Reader == #
@@ -215,19 +244,22 @@ class SerialManager(QObject):
                                 self.parent.data_available.emit(
                                     self.parent.message_replugged)
 
-                                self.parent.parent.update_status_bar(f"// CONNECTED -> {self.parent.ser.portstr} <- {self.parent.ser.baudrate}")
+                                self.parent.parent.update_status_bar(f"// #CONNECTED -> {self.parent.ser.portstr} <- {self.parent.ser.baudrate}")
 
                                 self.is_unplugged = False
                                 break
 
                             except:
-                                winsound.Beep(575, 393)
+                                if self.parent.alarm == True:
+                                    winsound.Beep(575, 400)
     
     def start_thread(self):
-        
+        self.all_data = open(f"./{self.logs_path}/BlackBox/flight_data.txt", 'w')
+        self.all_data.write(f"[LASTET FLIGHT]: [{datetime.now()}] [CONNECTION INFO: ( {self.ser.__dict__} )]\n")
         self.worker = self.WorkerThread(self)
         self.worker.start()
 
     def stop_thread(self):
+        self.all_data.close()
         self.worker.terminate()
         
