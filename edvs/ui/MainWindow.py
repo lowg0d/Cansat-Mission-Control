@@ -183,6 +183,33 @@ class Ui_MainWindow(object):
         self.line_hide_5.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_hide_5.setObjectName("line_hide_5")
         self.horizontalLayout.addWidget(self.line_hide_5)
+        self.lb_state = QtWidgets.QLabel(self.fr_top_bar)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lb_state.sizePolicy().hasHeightForWidth())
+        self.lb_state.setSizePolicy(sizePolicy)
+        self.lb_state.setMinimumSize(QtCore.QSize(100, 35))
+        self.lb_state.setMaximumSize(QtCore.QSize(120, 35))
+        self.lb_state.setStyleSheet("QLabel{\n"
+"color: rgba(255, 255, 255, 0.2);\n"
+"background-color: rgb(39, 39, 39);\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"color: rgba(255, 255, 255, 0.2);\n"
+"}")
+        self.lb_state.setAlignment(QtCore.Qt.AlignCenter)
+        self.lb_state.setObjectName("lb_state")
+        self.horizontalLayout.addWidget(self.lb_state)
+        self.line_hide_6 = QtWidgets.QFrame(self.fr_top_bar)
+        self.line_hide_6.setMinimumSize(QtCore.QSize(1, 0))
+        self.line_hide_6.setMaximumSize(QtCore.QSize(1, 45))
+        self.line_hide_6.setStyleSheet("background-color: rgba(0, 0, 0, 0.5);")
+        self.line_hide_6.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_hide_6.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_hide_6.setObjectName("line_hide_6")
+        self.horizontalLayout.addWidget(self.line_hide_6)
         spacerItem = QtWidgets.QSpacerItem(797, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.btn_minimize = QtWidgets.QPushButton(self.fr_top_bar)
@@ -1003,6 +1030,7 @@ class Ui_MainWindow(object):
         self.time_label.setText(_translate("MainWindow", "N/A"))
         self.lb_countdown.setText(_translate("MainWindow", "N/A"))
         self.lb_ping.setText(_translate("MainWindow", "N/A"))
+        self.lb_state.setText(_translate("MainWindow", "N/A"))
         self.lb_Ports.setText(_translate("MainWindow", "PORT:"))
         self.lb_Baudrate.setText(_translate("MainWindow", "BAUDRATE:"))
         self.btn_connect_serial.setText(_translate("MainWindow", "disconnected"))

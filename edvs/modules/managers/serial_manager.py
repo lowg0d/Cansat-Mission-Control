@@ -94,6 +94,7 @@ class SerialManager(QObject):
     
         except Exception as e:
             self.parent.terminal.write(f"[-] Error Connecting - {e}")
+            self.ser.close()
 
     # == Disconnect == #
     def disconnect(self):

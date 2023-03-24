@@ -43,6 +43,8 @@ class GraphManager(QObject):
         self.filter_ranges = dict(self.config.get("graphs.filter_ranges"))
         self.filter_enabled = self.config.get("graphs.filter_enabled")
         self.previous_values = {}
+        self.previous_altitude = 0
+        self.altitude_match_times = 0
         
     # ================================================================= #
 
@@ -59,6 +61,7 @@ class GraphManager(QObject):
             time_mission = ping / 1000
             
             self.update_labels(self.total_time, ping)
+            self.update_state(value_chain[3])
 
             self.graph_temp.update(value_chain[0],time_mission)
             self.graph_humidity.update(value_chain[1],time_mission)
@@ -93,16 +96,44 @@ class GraphManager(QObject):
             else:
                 filtered_values.append(value)
         return filtered_values
-    
+            
+    def update_state(self, altitude):
+        print(f"{float(altitude)} "+ f" {float(self.previous_altitude)}")
+        message = f"<b style='color:#16a085;'>// #IDLE</b>"
+        
+        if float(altitude) > float(self.previous_altitude):
+            if self.altitude_match_times > 3:
+                self.previous_altitude = altitude
+                message = f"<b style='color:#8cb854;'>// #ASCENT</b>"
+            else:
+                self.previous_altitude = altitude
+                self.altitude_match_times += 1
+        
+        elif float(altitude) < float(self.previous_altitude):
+            self.previous_altitude = altitude
+            message = f"<b style='color:#d79921;'>// #DESCENT</b>"
+        
+        elif float(altitude) == float(self.previous_altitude):
+            self.previous_altitude = altitude
+            message = f"<b style='color:#9b59b6;'>// #LANDED</b>"
+        
+        else:
+            self.previous_altitude = altitude
+            message = f"<b style='color:#a8002a;'>// #UNKNOWN</b>"
+        
+        self.parent.ui.lb_state.setText(message)
+        
+        
+            
     # ================================================================= #
     
     def update_labels(self, time, ping):
         
-        ping_color = "green"
+        ping_color = "#8cb854"
         if ping > 1100:
-            ping_color = "orange"
+            ping_color = "#d79921"
         if ping > 5100:
-            ping_color = "red"
+            ping_color = "#a8002a"
             
         self.parent.ui.lb_countdown.setText(
                         f"<b style='color:rgba(235,235,255,0.4);'>{time:.2f}</b>S MIT")
@@ -146,7 +177,7 @@ class GraphManager(QObject):
         
         self.graph_gps = GpsPlotWidget(
             title="LAT/LON",
-            color="#B53471"
+            color="#27ae60"
         )
         
         # add the graphs to the layouts
