@@ -152,8 +152,8 @@ class SerialManager(QObject):
         pressure = np.random.uniform(800, 1200)
         random_value = np.random.randint(0, 6)
 
-        latitude = self.last_latitude + np.random.uniform(0.0001, 0.00001)
-        longitude = self.last_longitude + np.random.uniform(0.0001, 0.00001)
+        latitude = self.last_latitude + np.random.uniform(0.00001, 0.000001)
+        longitude = self.last_longitude + np.random.uniform(0.00001, 0.000001)
         
         speed = np.random.uniform(0, 200)
         

@@ -69,6 +69,7 @@ class MonoAxisPlotWidget(pg.PlotItem):
         
         self.setXRange(self.ptr1 - elapsed_time, self.ptr1, padding=0.01)        
         self.graph_plot.setData(x=x_vals, y=smoothed_data)
+        
 # ================================================================= #
 class GpsPlotWidget(pg.PlotItem):
     def __init__(self, parent=None, labels={'bottom': 'Longitude', 'left': 'Latitude'}, title=None,

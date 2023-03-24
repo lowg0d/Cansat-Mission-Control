@@ -60,8 +60,8 @@ class GraphManager(QObject):
             ping = self.last_update_time.msecsTo(now)
             time_mission = ping / 1000
             
-            self.update_labels(self.total_time, ping)
             self.update_state(value_chain[3])
+            self.update_labels(self.total_time, ping)
 
             self.graph_temp.update(value_chain[0],time_mission)
             self.graph_humidity.update(value_chain[1],time_mission)
@@ -98,7 +98,6 @@ class GraphManager(QObject):
         return filtered_values
             
     def update_state(self, altitude):
-        print(f"{float(altitude)} "+ f" {float(self.previous_altitude)}")
         message = f"<b style='color:#16a085;'>// #IDLE</b>"
         
         if float(altitude) > float(self.previous_altitude):
@@ -123,8 +122,6 @@ class GraphManager(QObject):
         
         self.parent.ui.lb_state.setText(message)
         
-        
-            
     # ================================================================= #
     
     def update_labels(self, time, ping):
@@ -134,12 +131,12 @@ class GraphManager(QObject):
             ping_color = "#d79921"
         if ping > 5100:
             ping_color = "#a8002a"
-            
+        
         self.parent.ui.lb_countdown.setText(
-                        f"<b style='color:rgba(235,235,255,0.4);'>{time:.2f}</b>S MIT")
+                        f"<b style='color:rgba(235,235,255,0.4);'>{time:.2f}S</b> MIT")
         
         self.parent.ui.lb_ping.setText(
-                    f"<b style='color:{ping_color};'>{ping}</b>ms")
+                    f"<b style='color:{ping_color};'>{ping} ms</b>")
             
     # ================================================================= #
             
