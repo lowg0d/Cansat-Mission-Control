@@ -132,7 +132,7 @@ class SerialManager(QObject):
                     
                     now = datetime.now()
                     self.update_graphs.emit(data_dic)
-                    self.data_available.emit(str(data_dic))
+                    self.data_available.emit(str(data))
                     
                     if self.record_enabled == True:
                         data += f";{now}"

@@ -145,18 +145,18 @@ class GraphManager(QObject):
         self.graph_temp = MonoAxisPlotWidget(
             title="TEMP(ºC)",
             linspace_x=50,
-            color="#e74c3c",
+            color="#2980b9",
         )
 
         self.graph_bp = MonoAxisPlotWidget(
             title="BP(BAR)",
             linspace_x=50,
-            color="#e74c3c"
+            color="#2980b9"
         )
         
         self.graph_humidity = MonoAxisPlotWidget(
             title="HUMIDITY(%)",
-            color="#16a085",
+            color="#e67e22",
             linspace_x=50
         )
 
@@ -174,7 +174,7 @@ class GraphManager(QObject):
         
         self.graph_gps = GpsPlotWidget(
             title="LAT/LON",
-            color="#27ae60"
+            color="#c0392b"
         )
         
         # add the graphs to the layouts
