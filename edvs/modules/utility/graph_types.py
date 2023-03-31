@@ -13,7 +13,7 @@
 import pyqtgraph as pg
 import numpy as np
 
-from PyQt5.QtGui import QColor, QBrush
+from PySide6.QtGui import QColor, QBrush
 
 # ================================================================= #
 class MonoAxisPlotWidget(pg.PlotItem):

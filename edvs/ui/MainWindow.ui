@@ -760,8 +760,13 @@ QComboBox:drop-down{
 }
 
 QComboBox QAbstractItem{
-    selection-background-color:   rgb(47, 175, 178);
+    selection-background-color:  rgba(0, 0, 0,0);
     border: none;
+}
+
+QComboBox QAbstractItemView::item:selected {
+	border-radius: 0;
+	font: 700 9pt &quot;Arame Mono&quot;;
 }
 
 QListView{
@@ -1476,7 +1481,7 @@ border-color: rgb(140, 184, 84);
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_1">
           <property name="styleSheet">

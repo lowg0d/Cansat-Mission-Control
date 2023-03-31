@@ -10,3 +10,9 @@ edvs/modules/utility/__pycache__/
 edvs/ui/resources/__pycache__/
 saves/
 .vscode/
+<<<<<<< HEAD
+=======
+.gitignore
+build/
+setup.py
+>>>>>>> 1270f6dea6a83554a6511b57fae81865dfe287f1

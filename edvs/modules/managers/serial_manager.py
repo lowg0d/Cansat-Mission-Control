@@ -21,15 +21,15 @@ import serial.tools.list_ports
 
 from datetime import datetime
 
-from PyQt5.QtCore import (QObject,
-                            pyqtSignal,
+from PySide6.QtCore import (QObject,
+                            Signal,
                             QThread)
 
 # ================================================================= #
 
 class SerialManager(QObject):
-    data_available = pyqtSignal(str)
-    update_graphs = pyqtSignal(list)
+    data_available = Signal(str)
+    update_graphs = Signal(list)
     
     def __init__(self, parent):
         super().__init__(parent)
@@ -87,7 +87,7 @@ class SerialManager(QObject):
     # ================================================================= #
     
     # == Connect == #
-    def connect(self):
+    def connect_serial(self):
         try:
             self.ser.open()
             self.start_thread()
@@ -97,7 +97,7 @@ class SerialManager(QObject):
             self.ser.close()
 
     # == Disconnect == #
-    def disconnect(self):
+    def disconnect_serial(self):
           
         try:
             self.stop_thread()
@@ -139,6 +139,7 @@ class SerialManager(QObject):
                         values = data.split(";")
                         writer = csv.writer(self.logs_file, delimiter=",")
                         writer.writerow(values)
+                        
         except Exception as e:
             self.all_data.write("[EXCEPTION]: " + str(e))
             print("[EXCEPTION]: " + str(e))
