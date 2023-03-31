@@ -10,7 +10,7 @@
 -- @data: 2/20/2023
 """
 
-from PyQt5.QtCore import (QObject, Qt,
+from PySide6.QtCore import (QObject, Qt,
                           QPropertyAnimation,
                           QEasingCurve,
                           QPoint)
