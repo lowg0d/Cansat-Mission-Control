@@ -10,10 +10,12 @@
 -- @data: 2/20/2023
 """
 
-from PyQt5.QtCore import (QObject, Qt,
-                          QPropertyAnimation,
-                          QEasingCurve,
-                          QPoint)
+from PySide6.QtCore import (QThread,
+                            QObject,
+                            Qt,
+                            QPropertyAnimation,
+                            QEasingCurve,
+                            QPoint)
 
 # ============================================================== #
 
@@ -28,21 +30,24 @@ class WindowManager(QObject):
         self.full_screen = False
 
         # == setup menu animations == #
+        self.menu_thread = QThread(self)
+        self.menu_thread.start()
+
         # on
-        self.menu_animation_on = QPropertyAnimation(
-            self.ui.fr_menu, b'minimumWidth')
+        self.menu_animation_on = QPropertyAnimation(self.ui.fr_menu, b'minimumWidth')
         self.menu_animation_on.setDuration(80)
         self.menu_animation_on.setStartValue(0)
         self.menu_animation_on.setEndValue(200)
         self.menu_animation_on.setEasingCurve(QEasingCurve.InOutQuart)
+        self.menu_animation_on.moveToThread(self.menu_thread)
 
         # off
-        self.menu_animation_off = QPropertyAnimation(
-            self.ui.fr_menu, b'minimumWidth')
+        self.menu_animation_off = QPropertyAnimation(self.ui.fr_menu, b'minimumWidth')
         self.menu_animation_off.setDuration(80)
         self.menu_animation_off.setStartValue(200)
         self.menu_animation_off.setEndValue(0)
         self.menu_animation_off.setEasingCurve(QEasingCurve.InOutQuart)
+        self.menu_animation_off.moveToThread(self.menu_thread)
 
     # ============================================================== #
 

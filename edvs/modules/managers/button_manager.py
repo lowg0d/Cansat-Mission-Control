@@ -10,7 +10,7 @@
 -- @data: 3/13/2023
 """
 
-from PyQt5.QtCore import QObject
+from PySide6.QtCore import QObject
 
 # ================================================================= #
 

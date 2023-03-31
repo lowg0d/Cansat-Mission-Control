@@ -11,7 +11,7 @@
 """
 
 import platform
-from PyQt5.QtCore import QObject, QTime
+from PySide6.QtCore import QObject, QTime
 
 # ================================================================= #
 

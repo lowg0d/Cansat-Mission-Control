@@ -15,7 +15,7 @@ import os
 import sys
 
 from edvs import MainWindow
-from PyQt5.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 
 if __name__ == '__main__':
     # Fixes high dpi issues and scaling over 100

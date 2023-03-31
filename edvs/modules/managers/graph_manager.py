@@ -15,8 +15,8 @@ n/s 44 40
 
 import pyqtgraph as pg
 
-from PyQt5.QtCore import QObject, QDateTime
-from PyQt5.QtGui import QPainter
+from PySide6.QtCore import QObject, QDateTime
+from PySide6.QtGui import QPainter
 
 from edvs.modules.utility import (
     MonoAxisPlotWidget,

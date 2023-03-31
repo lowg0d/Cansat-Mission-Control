@@ -13,7 +13,7 @@
 import os
 import time
 
-from PyQt5.QtCore import QObject
+from PySide6.QtCore import QObject
 
 # ================================================================= #
 
@@ -125,7 +125,7 @@ class ConnectionBuffer(QObject):
                 self.serial.ser.baudrate = self.ui.cb_bauds.currentText()
 
                 # Attempt to connect to the port
-                self.serial.connect()
+                self.serial.connect_serial()
                 
                 if self.serial.ser.is_open:
                     
@@ -150,7 +150,7 @@ class ConnectionBuffer(QObject):
     # == Disconnect == #
     def disconnect(self):
         # disconnect from the port using the serial util
-        self.serial.disconnect()
+        self.serial.disconnect_serial()
 
         # change button text to disconnected
         self.ui.btn_connect_serial.setText("disconnected")
