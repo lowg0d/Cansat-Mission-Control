@@ -7,21 +7,5 @@ edvs/modules/utility/__pycache__/
 edvs/ui/resources/__pycache__/
 saves/
 .vscode/
-saves - Copy/flight_data-25.03.23-1.csv
-saves - Copy/flight_data-25.03.23-2.csv
-saves - Copy/flight_data-25.03.23-3.csv
-saves - Copy/flight_data-25.03.23-4.csv
-saves - Copy/flight_data-25.03.23-5.csv
-saves - Copy/flight_data-25.03.23-6.csv
-saves - Copy/LOG.TXT
-saves - Copy/BlackBox/flight_data.txt
 .gitignore
-saves_good/flight_data-25.03.23-1.csv
-saves_good/flight_data-25.03.23-2.csv
-saves_good/flight_data-25.03.23-3.csv
-saves_good/flight_data-25.03.23-4.csv
-saves_good/flight_data-25.03.23-5.csv
-saves_good/flight_data-25.03.23-6.csv
-saves_good/LOG.TXT
-saves_good/BlackBox/flight_data.txt
-test.py
+.setup/
