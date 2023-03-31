@@ -48,11 +48,13 @@
             "command_prefix": "/",
             "logs_folder": "./saves",
             "on_start_maximized": false,
-            "on_start_port_update": true
+            "on_start_port_update": true,
+            "clear_terminal": true,
+            "clear_cycle": 60
         }
     },
     "version": {
-        "version": "0.1.0",
+        "version": "0.2.0",
         "status": "BETA"
     }
 }

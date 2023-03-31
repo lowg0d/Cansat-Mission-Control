@@ -8,4 +8,5 @@ edvs/ui/resources/__pycache__/
 saves/
 .vscode/
 .gitignore
-.setup/
+build/
+setup.py
