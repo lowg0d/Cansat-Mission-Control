@@ -1,6 +1,6 @@
 {
     "connection": {
-        "filter_character": "Z",
+        "filter_character": "",
         "alarm": true,
         "bauds_default": "9600",
         "time_out": 2,
