@@ -67,6 +67,9 @@ class SerialManager(QObject):
         self.last_temperature = 15
         self.last_altitude = 0.0
     
+        self.all_data = open(f"./{self.logs_path}/BlackBox/flight_data.txt", 'w')
+        self.all_data.close()
+    
         if not os.path.exists(self.logs_path):
             os.mkdir(self.logs_path)
     

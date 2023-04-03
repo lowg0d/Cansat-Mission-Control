@@ -63,6 +63,7 @@ class MainWindow(QMainWindow):
         # == Start main clock thread == #
         self.clock_updater.update_global_time_label()
         self.clock_updater.start_time_update_thread()
+        self.current_resize_dir = 1920
         
         # == send bootup message
         self.terminal.boot_up_message()
@@ -110,6 +111,8 @@ class MainWindow(QMainWindow):
         
         self.window_version = f"{self.app_status}-{self.app_version}"
         self.window_id = f"{window_name} | v: {self.app_status}-{self.app_version}"
+        
+        self.setWindowTitle(window_name)
         
     # == Set up => BUTTONS == #
     def setup_buttons(self):
@@ -215,12 +218,6 @@ class MainWindow(QMainWindow):
             lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
         self.ui.btn_menu_config.clicked.connect(
             lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_3))
-
-    # ================================================================= #
-
-    # == MousePress Event == #
-    def mousePressEvent(self, e):
-        self.window_manager.clickPostion = e.globalPos()
     
     # ================================================================= #
     
@@ -244,6 +241,8 @@ class MainWindow(QMainWindow):
         os.startfile(path)
         
     # ================================================================= #
+    
+    # == load an apply the settings from the configuration file == #
     def apply_config(self):
         update_ports_on_start = self.config.get(
             "application.settings.on_start_port_update")
@@ -258,6 +257,9 @@ class MainWindow(QMainWindow):
         if maximized_on_start == True:
             self.ui.btn_start_max.setChecked(True)
             self.window_manager.maximize_app()
-            
-    def closeEvent(self, event):
-        self.serial.all_data.close()
+
+    # ================================================================= #
+
+    # == MousePress Event == #
+    def mousePressEvent(self, e):
+        self.window_manager.clickPostion = e.globalPos()

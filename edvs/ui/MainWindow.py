@@ -89,11 +89,17 @@ class Ui_MainWindow(object):
 "}")
         self.fr_top_bar.setFrameShape(QFrame.NoFrame)
         self.fr_top_bar.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.fr_top_bar)
+        self.horizontalLayout_9 = QHBoxLayout(self.fr_top_bar)
+        self.horizontalLayout_9.setSpacing(0)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.TopBarWideget = QWidget(self.fr_top_bar)
+        self.TopBarWideget.setObjectName(u"TopBarWideget")
+        self.horizontalLayout = QHBoxLayout(self.TopBarWideget)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.btn_togle_menu = QPushButton(self.fr_top_bar)
+        self.btn_togle_menu = QPushButton(self.TopBarWideget)
         self.btn_togle_menu.setObjectName(u"btn_togle_menu")
         sizePolicy.setHeightForWidth(self.btn_togle_menu.sizePolicy().hasHeightForWidth())
         self.btn_togle_menu.setSizePolicy(sizePolicy)
@@ -116,7 +122,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_togle_menu)
 
-        self.line_3 = QFrame(self.fr_top_bar)
+        self.line_3 = QFrame(self.TopBarWideget)
         self.line_3.setObjectName(u"line_3")
         self.line_3.setMinimumSize(QSize(1, 0))
         self.line_3.setMaximumSize(QSize(1, 45))
@@ -126,7 +132,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_3)
 
-        self.time_label = QLabel(self.fr_top_bar)
+        self.time_label = QLabel(self.TopBarWideget)
         self.time_label.setObjectName(u"time_label")
         self.time_label.setMinimumSize(QSize(149, 0))
         self.time_label.setStyleSheet(u"color: rgba(255, 255, 255, 0.2);\n"
@@ -135,7 +141,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.time_label)
 
-        self.line_hide_4 = QFrame(self.fr_top_bar)
+        self.line_hide_4 = QFrame(self.TopBarWideget)
         self.line_hide_4.setObjectName(u"line_hide_4")
         self.line_hide_4.setMinimumSize(QSize(1, 0))
         self.line_hide_4.setMaximumSize(QSize(1, 45))
@@ -145,7 +151,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_hide_4)
 
-        self.lb_countdown = QLabel(self.fr_top_bar)
+        self.lb_countdown = QLabel(self.TopBarWideget)
         self.lb_countdown.setObjectName(u"lb_countdown")
         sizePolicy1 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
         sizePolicy1.setHorizontalStretch(0)
@@ -166,7 +172,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.lb_countdown)
 
-        self.line_hide_3 = QFrame(self.fr_top_bar)
+        self.line_hide_3 = QFrame(self.TopBarWideget)
         self.line_hide_3.setObjectName(u"line_hide_3")
         self.line_hide_3.setMinimumSize(QSize(1, 0))
         self.line_hide_3.setMaximumSize(QSize(1, 45))
@@ -176,7 +182,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_hide_3)
 
-        self.lb_ping = QLabel(self.fr_top_bar)
+        self.lb_ping = QLabel(self.TopBarWideget)
         self.lb_ping.setObjectName(u"lb_ping")
         sizePolicy1.setHeightForWidth(self.lb_ping.sizePolicy().hasHeightForWidth())
         self.lb_ping.setSizePolicy(sizePolicy1)
@@ -194,7 +200,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.lb_ping)
 
-        self.line_hide_5 = QFrame(self.fr_top_bar)
+        self.line_hide_5 = QFrame(self.TopBarWideget)
         self.line_hide_5.setObjectName(u"line_hide_5")
         self.line_hide_5.setMinimumSize(QSize(1, 0))
         self.line_hide_5.setMaximumSize(QSize(1, 45))
@@ -204,7 +210,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_hide_5)
 
-        self.lb_state = QLabel(self.fr_top_bar)
+        self.lb_state = QLabel(self.TopBarWideget)
         self.lb_state.setObjectName(u"lb_state")
         sizePolicy1.setHeightForWidth(self.lb_state.sizePolicy().hasHeightForWidth())
         self.lb_state.setSizePolicy(sizePolicy1)
@@ -222,7 +228,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.lb_state)
 
-        self.line_hide_6 = QFrame(self.fr_top_bar)
+        self.line_hide_6 = QFrame(self.TopBarWideget)
         self.line_hide_6.setObjectName(u"line_hide_6")
         self.line_hide_6.setMinimumSize(QSize(1, 0))
         self.line_hide_6.setMaximumSize(QSize(1, 45))
@@ -232,11 +238,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_hide_6)
 
-        self.top_bar_spacer = QSpacerItem(797, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.top_bar_spacer = QSpacerItem(403, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.top_bar_spacer)
 
-        self.btn_minimize = QPushButton(self.fr_top_bar)
+        self.btn_minimize = QPushButton(self.TopBarWideget)
         self.btn_minimize.setObjectName(u"btn_minimize")
         sizePolicy.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
         self.btn_minimize.setSizePolicy(sizePolicy)
@@ -251,7 +257,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_minimize)
 
-        self.btn_normalize = QPushButton(self.fr_top_bar)
+        self.btn_normalize = QPushButton(self.TopBarWideget)
         self.btn_normalize.setObjectName(u"btn_normalize")
         sizePolicy.setHeightForWidth(self.btn_normalize.sizePolicy().hasHeightForWidth())
         self.btn_normalize.setSizePolicy(sizePolicy)
@@ -266,7 +272,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_normalize)
 
-        self.btn_maximize = QPushButton(self.fr_top_bar)
+        self.btn_maximize = QPushButton(self.TopBarWideget)
         self.btn_maximize.setObjectName(u"btn_maximize")
         sizePolicy.setHeightForWidth(self.btn_maximize.sizePolicy().hasHeightForWidth())
         self.btn_maximize.setSizePolicy(sizePolicy)
@@ -281,7 +287,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_maximize)
 
-        self.btn_close = QPushButton(self.fr_top_bar)
+        self.btn_close = QPushButton(self.TopBarWideget)
         self.btn_close.setObjectName(u"btn_close")
         sizePolicy.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
         self.btn_close.setSizePolicy(sizePolicy)
@@ -301,6 +307,9 @@ class Ui_MainWindow(object):
         self.btn_close.setIconSize(QSize(29, 29))
 
         self.horizontalLayout.addWidget(self.btn_close)
+
+
+        self.horizontalLayout_9.addWidget(self.TopBarWideget)
 
 
         self.verticalLayout_5.addWidget(self.fr_top_bar)
