@@ -1,6 +1,6 @@
 ![](https://i.imgur.com/rLJG0se.png)
 
-## !! IMPORTANT change the filter_character in the config.json, you can put whatever it is the header for your data string
+## !! UPDATED VERSION DROPPING SOOOOOOOON !!!!!
 
 # EDVS - Cansat Mission Control Gui - Python 3.11.2
 
